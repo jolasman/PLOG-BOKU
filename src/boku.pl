@@ -31,6 +31,7 @@ playGame(X) :-
         printBoard(X2),
         playGame(X2).
 
+      
 player1turn(Board1, Board2) :-
         write('\nJOGADOR 1\n'),
         write('Escolha a posicao onde pretende colocar a sua peca (X e de seguida Y):\n'),
@@ -39,7 +40,8 @@ player1turn(Board1, Board2) :-
         write('\n'),
         write('Y: '),
         read(Ypos),
-        write('\n').
+        write('\n'),
+        verificaCoordenadas(Board1, Xpos, Ypos, Board2, 1).
 
 player2turn(Board1, Board2) :-
         write('\nJOGADOR 2\n'),
@@ -49,4 +51,14 @@ player2turn(Board1, Board2) :-
         write('\n'),
         write('Y: '),
         read(Ypos),
-        write('\n').
+        write('\n'),
+        verificaCoordenadas(Board1, Xpos, Ypos, Board2, 2).
+
+
+verificaCoordenadas(Board1, Xpos, Ypos, Board2, Player):- write('\n'),
+        write('Jogador'),
+        write(Player),
+        write(' ainda nao consigo fazer nada com os dados porque sou estupido XD \n').
+
+
+
