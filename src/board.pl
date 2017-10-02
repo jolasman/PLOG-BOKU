@@ -1,6 +1,7 @@
 
 /* Empty board generation */
 generateEmptyBoard(X) :- 
+        emptyBoardAux(L0, 0),
         emptyBoardAux(L1, 1),
         emptyBoardAux(L2, 2),
         emptyBoardAux(L3, 3),
@@ -12,7 +13,8 @@ generateEmptyBoard(X) :-
         emptyBoardAux(L9, 9),
         emptyBoardAux(L10, 10),
         emptyBoardAux(L11, 11),
-        append([], [L1], X1),
+        append([], [L0], X0),
+        append(X0, [L1], X1),
         append(X1, [L2], X2),
         append(X2, [L3], X3),
         append(X3, [L4], X4),
@@ -25,6 +27,9 @@ generateEmptyBoard(X) :-
         append(X10, [L11], X).
 
 
+emptyBoardAux(L, N) :-
+        N == 0,
+        append([],['1','2','3','4','5','6','7','8','9','10'],L).
 emptyBoardAux(L, N) :-
         N == 1,
         append([],[' ',' ',' ',' ',' ','#','#','#','#','#'],L).
