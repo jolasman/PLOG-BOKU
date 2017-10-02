@@ -1,5 +1,5 @@
 /*******************************
-* MAIN FUNCTIONS AND GAME LOOP *
+* para correr o jogo e' consultar este ficheiro e fazer start(X). *
 *******************************/
 
 :- include('print.pl').
