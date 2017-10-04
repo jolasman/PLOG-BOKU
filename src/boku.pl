@@ -6,20 +6,21 @@
 :- include('board.pl').
 
 %
-%emptyBoard([[' ',' ',' ',' ',' ','#','#','#','#','#'],
-%                        [' ',' ',' ',' ',' ',' ','#','#','#','#'],
-%                        [' ',' ',' ',' ',' ',' ',' ','#','#','#'],
-%                        [' ',' ',' ',' ',' ',' ',' ',' ','#','#'],
-%                        [' ',' ',' ',' ',' ',' ',' ',' ',' ','#'],
+%emptyBoard([[' ',' ',' ',' ',' ','E','E','E','E','E'],
+%                        [' ',' ',' ',' ',' ',' ','E','E','E','E'],
+%                        [' ',' ',' ',' ',' ',' ',' ','E','E','E'],
+%                        [' ',' ',' ',' ',' ',' ',' ',' ','E','E'],
+%                        [' ',' ',' ',' ',' ',' ',' ',' ',' ','E'],
 %                        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-%                        ['#',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-%                        ['#','#',' ',' ',' ',' ',' ',' ',' ',' '],
-%                        ['#','#','#',' ',' ',' ',' ',' ',' ',' '],
-%                        ['#','#','#','#',' ',' ',' ',' ',' ',' '],
-%                        ['#','#','#','#','#',' ',' ',' ',' ',' ']
+%                        ['E',' ',' ',' ',' ',' ',' ',' ',' ',' '],
+%                        ['E','E',' ',' ',' ',' ',' ',' ',' ',' '],
+%                        ['E','E','E',' ',' ',' ',' ',' ',' ',' '],
+%                        ['E','E','E','E',' ',' ',' ',' ',' ',' '],
+%                        ['E','E','E','E','E',' ',' ',' ',' ',' ']
 %                        ]).
 
 start(X) :-
+        printMenu(X),
         generateEmptyBoard(X),
         printBoard(X),
         playGame(X).
@@ -41,7 +42,7 @@ player1turn(Board1, Board2) :-
         write('Y: '),
         read(Ypos),
         write('\n'),
-        verificaCoordenadas(Board1, Xpos, Ypos, Board2, 1).
+        verificaCoordenadas(Board1, Xpos, Ypos, 1).
 
 player2turn(Board1, Board2) :-
         write('\nJOGADOR 2\n'),
@@ -52,10 +53,10 @@ player2turn(Board1, Board2) :-
         write('Y: '),
         read(Ypos),
         write('\n'),
-        verificaCoordenadas(Board1, Xpos, Ypos, Board2, 2).
+        verificaCoordenadas(Board1, Xpos, Ypos, 2).
 
 
-verificaCoordenadas(Board1, Xpos, Ypos, Board2, Player):- write('\n'),
+verificaCoordenadas(Board1, Xpos, Ypos, Player):- write('\n'),
         write('Jogador'),
         write(Player),
         write(' ainda nao consigo fazer nada com os dados porque sou estupido XD \n').
