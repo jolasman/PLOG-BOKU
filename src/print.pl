@@ -2,7 +2,7 @@
 * OUTPUT RELATED FUNCTIONS *
 ***************************/
 
-printMenu(X):- write('\n BOKU GAME - PROLOG VERSION 1.0'),
+printMenu(_):- write('\n BOKU GAME - PROLOG VERSION 1.0'),
         write('\n\n').
 
 

@@ -5,20 +5,6 @@
 :- include('print.pl').
 :- include('board.pl').
 
-%
-%emptyBoard([[' ',' ',' ',' ',' ','E','E','E','E','E'],
-%                        [' ',' ',' ',' ',' ',' ','E','E','E','E'],
-%                        [' ',' ',' ',' ',' ',' ',' ','E','E','E'],
-%                        [' ',' ',' ',' ',' ',' ',' ',' ','E','E'],
-%                        [' ',' ',' ',' ',' ',' ',' ',' ',' ','E'],
-%                        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-%                        ['E',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-%                        ['E','E',' ',' ',' ',' ',' ',' ',' ',' '],
-%                        ['E','E','E',' ',' ',' ',' ',' ',' ',' '],
-%                        ['E','E','E','E',' ',' ',' ',' ',' ',' '],
-%                        ['E','E','E','E','E',' ',' ',' ',' ',' ']
-%                        ]).
-
 start(X) :-
         printMenu(X),
         generateEmptyBoard(X),
@@ -42,7 +28,7 @@ player1turn(Board1, Board2) :-
         write('Y: '),
         read(Ypos),
         write('\n'),
-        verificaCoordenadas(Board1, Xpos, Ypos, 1).
+        verifyCoordenates(Board1, Xpos, Ypos,'W', Board2).
 
 player2turn(Board1, Board2) :-
         write('\nJOGADOR 2\n'),
@@ -53,13 +39,9 @@ player2turn(Board1, Board2) :-
         write('Y: '),
         read(Ypos),
         write('\n'),
-        verificaCoordenadas(Board1, Xpos, Ypos, 2).
+        verifyCoordenates(Board1, Xpos, Ypos,'B', Board2).
 
 
-verificaCoordenadas(Board1, Xpos, Ypos, Player):- write('\n'),
-        write('Jogador'),
-        write(Player),
-        write(' ainda nao consigo fazer nada com os dados porque sou estupido XD \n').
 
 
 
