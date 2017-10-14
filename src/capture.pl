@@ -17,28 +17,24 @@ verifyCaptureDiagonal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat),
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 \= Pieceat,
         PieceAtD1 \= ' ',
-        write('\n1 aux 1 1º\n'),
         verifyCaptureDiagonal1aux(Board, X1, Y1, Pieceat).
 
 verifyCaptureDiagonal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
         X1 is X,
         Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-        PieceAtD1 == Pieceat,
-        write('\n1 aux 1 2º\n').
+        PieceAtD1 == Pieceat.
 
-verifyCaptureDiagonal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+verifyCaptureDiagonal1(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
         X1 is X,
         Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-        PieceAtD1 == ' ',
-        write('\n1 aux 1 3º\n').
+        PieceAtD1 == ' '.
        
         
 verifyCaptureDiagonal1aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
         Pieceat \= ' ',
-        write('\n1 aux2 1 1º\n'),
         X1 is X,
         Y1 is Y + 1, 
         verifyCaptureDiagonal1aux2(Board, X1, Y1, Pieceat). /* diagonal esq baixo */
@@ -55,7 +51,6 @@ verifyCaptureDiagonal1aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X,
         PieceAnterior == Pieceat,
         X1 is X,
         Y1 is Y + 1,
-         write('\n1 aux3 1 1º\n'),
         verifyCaptureDiagonal1aux3(Board, X1, Y1, Pieceat). 
 
 verifyCaptureDiagonal1aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
