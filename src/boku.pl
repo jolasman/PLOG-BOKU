@@ -4,6 +4,7 @@
 
 :- include('print.pl').
 :- include('board.pl').
+:- include('capture.pl').
 
 start(X) :-
         printMenu(X),
@@ -28,7 +29,8 @@ player1turn(Board1, Board2) :-
         write('Y: '),
         read(Ypos),
         write('\n'),
-        verifyCoordenates(Board1, Xpos, Ypos,'W', Board2).
+        verifyCoordenates(Board1, Xpos, Ypos,'W', Board2),
+        isCapturePlay(Board2, Xpos, Ypos).
 
 player2turn(Board1, Board2) :-
         write('\nPlayer 2\n'),
