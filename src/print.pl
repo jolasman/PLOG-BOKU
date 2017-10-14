@@ -8,8 +8,7 @@ printMenu(_):- write('\n BOKU GAME - PROLOG VERSION 1.0'),
 
 /*Printing an entire board */
 printBoard([]).
-printBoard([Numbers, X1, X2, X3, X4, X5, X6, X7, X8, X9, X10, X11]) :- 
-        printLinenumbers(Numbers),
+printBoard([X1, X2, X3, X4, X5, X6, X7, X8, X9, X10, X11, X12]) :- 
         printLine1(X1),
         printLine2(X2),
         printLine3(X3),
@@ -20,15 +19,10 @@ printBoard([Numbers, X1, X2, X3, X4, X5, X6, X7, X8, X9, X10, X11]) :-
         printLine8(X8),
         printLine9(X9),
         printLine10(X10),
-        printLine11(X11).
+        printLine11(X11),
+        printLine12(X12).
 
 printLiteralLine([X|Xs]) :- write(X), printLiteralLine(Xs).
-
-% print das letras
-printLinenumbers([X|Xs]) :- write('   '), printLinenumbersaux([X|Xs]).
-printLinenumbersaux([]) :- write('|\n').
-printLinenumbersaux([X|Xs]) :- X \== 'E', write('|'), write(X),  printLinenumbersaux(Xs).
-printLinenumbersaux([X|Xs]) :- X == 'E',  printLinenumbersaux(Xs).
 
 
 printLine1([X|Xs]) :- write('1-      '), printLine1aux([X|Xs]).
@@ -86,4 +80,8 @@ printLine11aux([]) :- write('|\n').
 printLine11aux([X|Xs]) :- X \== 'E', write('|'), write(X), printLine11aux(Xs).
 printLine11aux([X|Xs]) :- X == 'E', printLine11aux(Xs).
 
-
+%print dos numero em baixo
+printLine12([X|Xs]) :- write('   '), printLine12aux([X|Xs]).
+printLine12aux([]) :- write('|\n').
+printLine12aux([X|Xs]) :- X \== 'E', write('|'), write(X), printLine12aux(Xs).
+printLine12aux([X|Xs]) :- X == 'E', printLine12aux(Xs).

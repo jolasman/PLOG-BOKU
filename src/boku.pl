@@ -20,8 +20,8 @@ playGame(X) :-
 
       
 player1turn(Board1, Board2) :-
-        write('\nJOGADOR 1\n'),
-        write('Escolha a posicao onde pretende colocar a sua peca (X e de seguida Y):\n'),
+        write('\nPlayer 1\n'),
+        write('Choose the position where you want to place your piece (X and then Y):\n'),
         write('X: '),
         read(Xpos),
         write('\n'),
@@ -31,8 +31,8 @@ player1turn(Board1, Board2) :-
         verifyCoordenates(Board1, Xpos, Ypos,'W', Board2).
 
 player2turn(Board1, Board2) :-
-        write('\nJOGADOR 2\n'),
-        write('Escolha a posicao onde pretende colocar a sua peca (X e de seguida Y):\n'),
+        write('\nPlayer 2\n'),
+        write('Choose the position where you want to place your piece (X and then Y):\n'),
         write('X: '),
         read(Xpos),
         write('\n'),
