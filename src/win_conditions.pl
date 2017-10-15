@@ -2,10 +2,11 @@
 
         
 %Para verificar se a jogada é uma jogada em que pode ser feita uma captura
-isWinCondition(Board,X,Y) :- %verifyWinDiagonals(Board, X,Y),
+isWinCondition(Board,X,Y) :- verifyWinDiagonals(Board, X,Y),
         verifyWinHorizontal(Board, X,Y).
 
 verifyWinDiagonals(Board,X,Y):- Y < 7,
+        X < 8,
         verifyWinDiagonal1(Board, X, Y).
 %        verifyWinDiagonal2(Board, X, Y),
 %        verifyWinDiagonal3(Board, X, Y),

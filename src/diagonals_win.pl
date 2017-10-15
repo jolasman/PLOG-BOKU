@@ -1,20 +1,23 @@
 %/***********************************diagonal 1 -> esq cima para baixo *********************************************/
 
-verifyWinDiagonal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+verifyWinDiagonal1(Board, X,Y):- Y + 1 < 11,
+        returnPieceAt(Board, X, Y, Pieceat), 
         X1 is X + 1,
         Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), 
         PieceAtD1 == Pieceat,
         PieceAtD1 \= ' ',
-        verifyWinDiagonal1aux(Board, X1, Y, Pieceat).
+        verifyWinDiagonal1aux(Board, X1, Y1, Pieceat).
 
-verifyWinDiagonal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+verifyWinDiagonal1(Board, X,Y):- Y + 1 < 11,
+        returnPieceAt(Board, X, Y, Pieceat), 
         X1 is X + 1,
         Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1),  
         PieceAtD1 \= Pieceat.
 
-verifyWinDiagonal1(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
+verifyWinDiagonal1(Board, X,Y):- Y + 1 < 11,
+        returnPieceAt(Board, X, Y, _), 
         X1 is X + 1,
         Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), 
