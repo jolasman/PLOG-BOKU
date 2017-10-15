@@ -49,6 +49,7 @@ verifyCaptureDiagonal1aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat)
 
 verifyCaptureDiagonal1aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
         write('\nPosition of capture, diagonal esquerda cima para baixo\n').
 
 verifyCaptureDiagonal1aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -116,6 +117,7 @@ verifyCaptureDiagonal2aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat)
 
 verifyCaptureDiagonal2aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
         write('\nPosition of capture, diagonal direita baixo para cima\n').
 
 verifyCaptureDiagonal2aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -181,6 +183,7 @@ verifyCaptureDiagonal3aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat)
 
 verifyCaptureDiagonal3aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
         write('\nPosition of capture, diagonal direita cima para baixo\n').
 
 verifyCaptureDiagonal3aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -246,6 +249,7 @@ verifyCaptureDiagonal4aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat)
 
 verifyCaptureDiagonal4aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
         write('\nPosition of capture, diagonal esquerda baixo para cima\n').
 
 verifyCaptureDiagonal4aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -320,6 +324,7 @@ verifyCaptureDiagonal11aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat
 
 verifyCaptureDiagonal11aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
         write('\nPosition of capture, diagonal esquerda cima para baixo. Tab parte baixo\n').
 
 verifyCaptureDiagonal11aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -387,6 +392,7 @@ verifyCaptureDiagonal21aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat
 
 verifyCaptureDiagonal21aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
         write('\nPosition of capture, diagonal direita baixo para cima. Tab parte baixo\n').
 
 verifyCaptureDiagonal21aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -452,6 +458,7 @@ verifyCaptureDiagonal31aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat
 
 verifyCaptureDiagonal31aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
         write('\nPosition of capture, diagonal direita cima para baixo. Tab parte baixo\n').
 
 verifyCaptureDiagonal31aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -517,6 +524,7 @@ verifyCaptureDiagonal41aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat
 
 verifyCaptureDiagonal41aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
         write('\nPosition of capture, diagonal esquerda baixo para cima. Tab parte baixo\n').
 
 verifyCaptureDiagonal41aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 

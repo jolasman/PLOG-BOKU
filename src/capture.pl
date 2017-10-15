@@ -71,6 +71,7 @@ verifyCaptureHorizontal1aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Piecea
 /***********/
 verifyCaptureHorizontal1aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
         write('\nPosition of capture, horizontal esquerda para a direita\n').
 
 verifyCaptureHorizontal1aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -133,6 +134,7 @@ verifyCaptureHorizontal2aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Piecea
 /***********/
 verifyCaptureHorizontal2aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
         write('\nPosition of capture, horizontal direita para a esquerda\n').
 
 verifyCaptureHorizontal2aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 

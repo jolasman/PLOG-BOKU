@@ -6,6 +6,8 @@
 :- include('board.pl').
 :- include('capture.pl').
 :- include('diagonals.pl').
+:- include('diagonals_win.pl').
+:- include('win_conditions.pl').
 
 start(X) :-
         printMenu(X),
@@ -31,7 +33,8 @@ player1turn(Board1, Board2) :-
         read(Ypos),
         write('\n'),
         verifyCoordenates(Board1, Xpos, Ypos,'W', Board2),
-        isCapturePlay(Board2, Xpos, Ypos).
+        isCapturePlay(Board2, Xpos, Ypos),
+        isWinCondition(Board2,Xpos,Ypos).
 
 player2turn(Board1, Board2) :-
         write('\nPlayer 2\n'),
@@ -42,7 +45,9 @@ player2turn(Board1, Board2) :-
         write('Y: '),
         read(Ypos),
         write('\n'),
-        verifyCoordenates(Board1, Xpos, Ypos,'B', Board2).
+        verifyCoordenates(Board1, Xpos, Ypos,'B', Board2),
+        isCapturePlay(Board2, Xpos, Ypos),
+        isWinCondition(Board2,Xpos,Ypos).
 
 
 
