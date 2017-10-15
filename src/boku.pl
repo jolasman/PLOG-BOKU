@@ -5,6 +5,7 @@
 :- include('print.pl').
 :- include('board.pl').
 :- include('capture.pl').
+:- include('diagonals.pl').
 
 start(X) :-
         printMenu(X),
