@@ -132,7 +132,7 @@ verifyCaptureDiagonal2aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat)
 
 
 /********************************************************************** Piece **************************/
-/***********************************diagonal 3 -> direita cima para baixo \ *********************************************/
+/***********************************diagonal 3 -> direita peça cima para baixo \ *********************************************/
 
 verifyCaptureDiagonal3(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
         X1 is X + 1,
@@ -536,3 +536,126 @@ verifyCaptureDiagonal41aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat
 
 /*****************************************************************************************************/
 
+
+
+/*********************************** horizontal capture *************************/
+
+%horizontal esq to dir
+verifyCaptureHorizontal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X + 1,
+        returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
+        PieceAtD1 \= Pieceat,
+        PieceAtD1 \= ' ',
+        verifyCaptureHorizontal1aux(Board, X1, Y, Pieceat).
+
+verifyCaptureHorizontal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X + 1,
+        returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
+        PieceAtD1 == Pieceat.
+
+verifyCaptureHorizontal1(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
+        X1 is X + 1,
+        returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
+        PieceAtD1 == ' '.
+       
+/**********/
+verifyCaptureHorizontal1aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
+        X1 is X + 1,
+        verifyCaptureHorizontal1aux2(Board, X1, Y, Pieceat). /* diagonal esq baixo */
+
+verifyCaptureHorizontal1aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat.
+        
+verifyCaptureHorizontal1aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyCaptureHorizontal1aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X + 1,
+        verifyCaptureHorizontal1aux3(Board, X1, Y, Pieceat). 
+
+verifyCaptureHorizontal1aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyCaptureHorizontal1aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/***********/
+verifyCaptureHorizontal1aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
+        write('\nPosition of capture, horizontal esquerda para a direita\n').
+
+verifyCaptureHorizontal1aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat.
+
+verifyCaptureHorizontal1aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/*****************************************************************************************************/
+
+
+
+
+
+/******************************** *************** ************************/
+
+%horixzontal dir to esq
+verifyCaptureHorizontal2(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X - 1,
+        returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
+        PieceAtD1 \= Pieceat,
+        PieceAtD1 \= ' ',
+        verifyCaptureHorizontal2aux(Board, X1, Y, Pieceat).
+
+verifyCaptureHorizontal2(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X - 1,
+        returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
+        PieceAtD1 == Pieceat.
+
+verifyCaptureHorizontal2(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
+        X1 is X - 1,
+        returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
+        PieceAtD1 == ' '.
+       
+/**********/
+verifyCaptureHorizontal2aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
+        X1 is X - 1,
+        verifyCaptureHorizontal2aux2(Board, X1, Y, Pieceat). /* diagonal esq baixo */
+
+verifyCaptureHorizontal2aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat.
+        
+verifyCaptureHorizontal2aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyCaptureHorizontal2aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X - 1,
+        verifyCaptureHorizontal2aux3(Board, X1, Y, Pieceat). 
+
+verifyCaptureHorizontal2aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyCaptureHorizontal2aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/***********/
+verifyCaptureHorizontal2aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat,
+        Pieceat \= ' ',
+        write('\nPosition of capture, horizontal direita para a esquerda\n').
+
+verifyCaptureHorizontal2aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat.
+
+verifyCaptureHorizontal2aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/*****************************************************************************************************/

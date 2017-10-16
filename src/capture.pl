@@ -104,7 +104,7 @@ verifyCaptureDiagonals(Board,X,Y):- Y == 6,
         verifyCaptureDiagonal4(Board, X, Y).
 %linha 6
 verifyCaptureDiagonals(Board,X,Y):- Y == 6,
-        X > 7, 
+        X > 6, 
         verifyCaptureDiagonal1(Board, X, Y),
         verifyCaptureDiagonal4(Board, X, Y).
 
@@ -112,110 +112,73 @@ verifyCaptureDiagonals(Board,X,Y):- Y == 6,
 /******************** parte de baixo do tabuleiro**********************/
 
 %linha11
-verifyCaptureDiagonals(Board,X,Y):- Y == 11,
-        X == 1,
-        verifyCaptureDiagonal2(Board, X, Y).
-
-%linha11
-verifyCaptureDiagonals(Board,X,Y):- Y == 11,
-        X > 1,
-        verifyCaptureDiagonal4(Board, X, Y),
-        verifyCaptureDiagonal2(Board, X, Y).
-
-%linha10
-verifyCaptureDiagonals(Board,X,Y):- Y == 10,
-        X == 1,
-        verifyCaptureDiagonal2(Board, X, Y).
-
-%linha10
-verifyCaptureDiagonals(Board,X,Y):- Y == 10,
-        X > 1,
-        verifyCaptureDiagonal4(Board, X, Y),
-        verifyCaptureDiagonal2(Board, X, Y).
-
-%linha9
-verifyCaptureDiagonals(Board,X,Y):- Y == 9,
-        X == 1,
-        verifyCaptureDiagonal2(Board, X, Y).
-
-%linha9
-verifyCaptureDiagonals(Board,X,Y):- Y == 9,
-        X > 1,
-        verifyCaptureDiagonal4(Board, X, Y),
-        verifyCaptureDiagonal2(Board, X, Y).
-
-
+verifyCaptureDiagonals(Board,X,Y):- Y > 8,
+        Y < 12,
+        X > 0,
+        verifyCaptureDiagonal41(Board, X, Y),
+        verifyCaptureDiagonal21(Board, X, Y).
 %linha8
 verifyCaptureDiagonals(Board,X,Y):- Y == 8,
         X == 1,
-        verifyCaptureDiagonal2(Board, X, Y),
-        verifyCaptureDiagonal3(Board, X, Y).
-
+        verifyCaptureDiagonal21(Board, X, Y),
+        verifyCaptureDiagonal31(Board, X, Y).
 %linha8
 verifyCaptureDiagonals(Board,X,Y):- Y == 8,
         X > 1,
         X < 4,
-        verifyCaptureDiagonal4(Board, X, Y),
-        verifyCaptureDiagonal2(Board, X, Y),
-        verifyCaptureDiagonal3(Board, X, Y).
+        verifyCaptureDiagonal41(Board, X, Y),
+        verifyCaptureDiagonal21(Board, X, Y),
+        verifyCaptureDiagonal31(Board, X, Y).
 %linha8
 verifyCaptureDiagonals(Board,X,Y):- Y == 8,
         X > 3,
         X < 6,
-        verifyCaptureDiagonal1(Board, X, Y),
-        verifyCaptureDiagonal2(Board, X, Y),
-        verifyCaptureDiagonal3(Board, X, Y),
-        verifyCaptureDiagonal4(Board, X, Y).
-
+        verifyCaptureDiagonal11(Board, X, Y),
+        verifyCaptureDiagonal21(Board, X, Y),
+        verifyCaptureDiagonal31(Board, X, Y),
+        verifyCaptureDiagonal41(Board, X, Y).
 %linha8
 verifyCaptureDiagonals(Board,X,Y):- Y == 8,
         X > 5,
         X < 8,
-        verifyCaptureDiagonal1(Board, X, Y),
-        verifyCaptureDiagonal2(Board, X, Y),
-        verifyCaptureDiagonal4(Board, X, Y).
-
+        verifyCaptureDiagonal11(Board, X, Y),
+        verifyCaptureDiagonal21(Board, X, Y),
+        verifyCaptureDiagonal41(Board, X, Y).
 %linha8
 verifyCaptureDiagonals(Board,X,Y):- Y == 8,
         X == 8,
-        verifyCaptureDiagonal1(Board, X, Y),
-        verifyCaptureDiagonal4(Board, X, Y).
-
-
+        verifyCaptureDiagonal11(Board, X, Y),
+        verifyCaptureDiagonal41(Board, X, Y).
 %linha7
 verifyCaptureDiagonals(Board,X,Y):- Y == 7,
         X < 3,
-        verifyCaptureDiagonal2(Board, X, Y),
-        verifyCaptureDiagonal3(Board, X, Y).
-
+        verifyCaptureDiagonal21(Board, X, Y),
+        verifyCaptureDiagonal31(Board, X, Y).
 %linha7
 verifyCaptureDiagonals(Board,X,Y):- Y == 7,
         X == 3,
-        verifyCaptureDiagonal4(Board, X, Y),
-        verifyCaptureDiagonal2(Board, X, Y),
-        verifyCaptureDiagonal3(Board, X, Y).
-
+        verifyCaptureDiagonal41(Board, X, Y),
+        verifyCaptureDiagonal21(Board, X, Y),
+        verifyCaptureDiagonal31(Board, X, Y).
 %linha7
 verifyCaptureDiagonals(Board,X,Y):- Y == 7,
         X > 3,
         X < 7,
-        verifyCaptureDiagonal1(Board, X, Y),
-        verifyCaptureDiagonal2(Board, X, Y),
-        verifyCaptureDiagonal3(Board, X, Y),
-        verifyCaptureDiagonal4(Board, X, Y).
-
+        verifyCaptureDiagonal11(Board, X, Y),
+        verifyCaptureDiagonal21(Board, X, Y),
+        verifyCaptureDiagonal31(Board, X, Y),
+        verifyCaptureDiagonal41(Board, X, Y).
 %linha7
 verifyCaptureDiagonals(Board,X,Y):- Y == 7,
         X == 7,
-        verifyCaptureDiagonal1(Board, X, Y),
-        verifyCaptureDiagonal2(Board, X, Y),
-        verifyCaptureDiagonal4(Board, X, Y).
-
+        verifyCaptureDiagonal11(Board, X, Y),
+        verifyCaptureDiagonal21(Board, X, Y),
+        verifyCaptureDiagonal41(Board, X, Y).
 %linha7
 verifyCaptureDiagonals(Board,X,Y):- Y == 7,
         X > 7,
-        verifyCaptureDiagonal1(Board, X, Y),
-        verifyCaptureDiagonal4(Board, X, Y).
+        verifyCaptureDiagonal11(Board, X, Y),
+        verifyCaptureDiagonal41(Board, X, Y).
 
 
 /******************************************************************************************/
@@ -319,126 +282,9 @@ verifyCaptureHorizontal(Board,X,Y):- Y == 11,
 verifyCaptureHorizontal(_,X,Y):- Y == 11,
         X == 3.
 
-
-%horizontal esq to dir
-verifyCaptureHorizontal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-        X1 is X + 1,
-        returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
-        PieceAtD1 \= Pieceat,
-        PieceAtD1 \= ' ',
-        verifyCaptureHorizontal1aux(Board, X1, Y, Pieceat).
-
-verifyCaptureHorizontal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-        X1 is X + 1,
-        returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
-        PieceAtD1 == Pieceat.
-
-verifyCaptureHorizontal1(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
-        X1 is X + 1,
-        returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
-        PieceAtD1 == ' '.
-       
-/**********/
-verifyCaptureHorizontal1aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-        PieceAnterior \= Pieceat,
-        Pieceat \= ' ',
-        X1 is X + 1,
-        verifyCaptureHorizontal1aux2(Board, X1, Y, Pieceat). /* diagonal esq baixo */
-
-verifyCaptureHorizontal1aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-        PieceAnterior == Pieceat.
-        
-verifyCaptureHorizontal1aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-        Pieceat == ' '.
-
-/**********/
-verifyCaptureHorizontal1aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-        PieceAnterior == Pieceat,
-        X1 is X + 1,
-        verifyCaptureHorizontal1aux3(Board, X1, Y, Pieceat). 
-
-verifyCaptureHorizontal1aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-        PieceAnterior \= Pieceat.
-
-verifyCaptureHorizontal1aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-        Pieceat == ' '.
-
-/***********/
-verifyCaptureHorizontal1aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-        PieceAnterior \= Pieceat,
-        Pieceat \= ' ',
-        write('\nPosition of capture, horizontal esquerda para a direita\n').
-
-verifyCaptureHorizontal1aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-        PieceAnterior == Pieceat.
-
-verifyCaptureHorizontal1aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-        Pieceat == ' '.
-
-/*****************************************************************************************************/
+/*************************************************************/
 
 
-
-
-
-/******************************** *************** ************************/
-
-%horixzontal dir to esq
-verifyCaptureHorizontal2(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-        X1 is X - 1,
-        returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
-        PieceAtD1 \= Pieceat,
-        PieceAtD1 \= ' ',
-        verifyCaptureHorizontal2aux(Board, X1, Y, Pieceat).
-
-verifyCaptureHorizontal2(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-        X1 is X - 1,
-        returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
-        PieceAtD1 == Pieceat.
-
-verifyCaptureHorizontal2(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
-        X1 is X - 1,
-        returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
-        PieceAtD1 == ' '.
-       
-/**********/
-verifyCaptureHorizontal2aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-        PieceAnterior \= Pieceat,
-        Pieceat \= ' ',
-        X1 is X - 1,
-        verifyCaptureHorizontal2aux2(Board, X1, Y, Pieceat). /* diagonal esq baixo */
-
-verifyCaptureHorizontal2aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-        PieceAnterior == Pieceat.
-        
-verifyCaptureHorizontal2aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-        Pieceat == ' '.
-
-/**********/
-verifyCaptureHorizontal2aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-        PieceAnterior == Pieceat,
-        X1 is X - 1,
-        verifyCaptureHorizontal2aux3(Board, X1, Y, Pieceat). 
-
-verifyCaptureHorizontal2aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-        PieceAnterior \= Pieceat.
-
-verifyCaptureHorizontal2aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-        Pieceat == ' '.
-
-/***********/
-verifyCaptureHorizontal2aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-        PieceAnterior \= Pieceat,
-        Pieceat \= ' ',
-        write('\nPosition of capture, horizontal direita para a esquerda\n').
-
-verifyCaptureHorizontal2aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-        PieceAnterior == Pieceat.
-
-verifyCaptureHorizontal2aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-        Pieceat == ' '.
-
-/*****************************************************************************************************/
 
 %Para que o jogador escolha qual das duas peças do adversário quer retirar  
 %choosePiece(Board, X,Y,Board2) :- 

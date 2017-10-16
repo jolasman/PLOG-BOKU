@@ -1,34 +1,30 @@
-%/***********************************diagonal 1 -> esq cima para baixo *********************************************/
 
-verifyWinDiagonal1(Board, X,Y):- Y + 1 < 11,
-        returnPieceAt(Board, X, Y, Pieceat), 
-        X1 is X + 1,
+
+
+%/***********************************diagonal 1 -> esq peça em cima para baixo *********************************************/
+
+verifyWinDiagonal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
         Y1 is Y + 1,
-        returnPieceAt(Board, X1, Y1, PieceAtD1), 
+        returnPieceAt(Board, X, Y1, PieceAtD1), 
         PieceAtD1 == Pieceat,
         PieceAtD1 \= ' ',
-        verifyWinDiagonal1aux(Board, X1, Y1, Pieceat).
+        verifyWinDiagonal1aux(Board, X, Y1, Pieceat).
 
-verifyWinDiagonal1(Board, X,Y):- Y + 1 < 11,
-        returnPieceAt(Board, X, Y, Pieceat), 
-        X1 is X + 1,
+verifyWinDiagonal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
         Y1 is Y + 1,
-        returnPieceAt(Board, X1, Y1, PieceAtD1),  
+        returnPieceAt(Board, X, Y1, PieceAtD1),  
         PieceAtD1 \= Pieceat.
 
-verifyWinDiagonal1(Board, X,Y):- Y + 1 < 11,
-        returnPieceAt(Board, X, Y, _), 
-        X1 is X + 1,
+verifyWinDiagonal1(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
         Y1 is Y + 1,
-        returnPieceAt(Board, X1, Y1, PieceAtD1), 
+        returnPieceAt(Board, X, Y1, PieceAtD1), 
         PieceAtD1 == ' '.
        
 /**********/
 verifyWinDiagonal1aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        X1 is X + 1,
         Y1 is Y + 1,
-        verifyWinDiagonal1aux2(Board, X1, Y1, Pieceat). 
+        verifyWinDiagonal1aux2(Board, X, Y1, Pieceat). 
 
 verifyWinDiagonal1aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat.
@@ -39,9 +35,8 @@ verifyWinDiagonal1aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 /**********/
 verifyWinDiagonal1aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        X1 is X + 1,
         Y1 is Y + 1,
-        verifyWinDiagonal1aux3(Board, X1, Y1, Pieceat). 
+        verifyWinDiagonal1aux3(Board, X, Y1, Pieceat). 
 
 verifyWinDiagonal1aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat.
@@ -52,9 +47,8 @@ verifyWinDiagonal1aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 /**********/
 verifyWinDiagonal1aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        X1 is X + 1,
         Y1 is Y + 1,
-        verifyWinDiagonal1aux4(Board, X1, Y1, Pieceat). 
+        verifyWinDiagonal1aux4(Board, X, Y1, Pieceat). 
 
 verifyWinDiagonal1aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat.
@@ -66,486 +60,749 @@ verifyWinDiagonal1aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 verifyWinDiagonal1aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'W',
-        write('\nPlayer 1 win the game, left to right\n').
+        write('\nPlayer 1 win the game, piece in upper left to bottom\n').
 
 verifyWinDiagonal1aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'B',
-        write('\nPlayer 2 win the game, left to right\n').
+        write('\nPlayer 2 win the game, piece in upper left to bottom\n').
 
 verifyWinDiagonal1aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat.
 
 verifyWinDiagonal1aux4(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' '.
-%
-%/*****************************************************************************************************/
-%
-%
-%
-%
-%
-%
+
+/*****************************************************************************************************/
+
+
+
+
 %/***********************************diagonal 2 -> direita baixo para cima *********************************************/
-%
-%verifyCaptureDiagonal2(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X,
-%        Y1 is Y - 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 \= Pieceat,
-%        PieceAtD1 \= ' ',
-%        verifyCaptureDiagonal2aux(Board, X1, Y1, Pieceat).
-%
-%verifyCaptureDiagonal2(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X,
-%        Y1 is Y - 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == Pieceat.
-%
-%verifyCaptureDiagonal2(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
-%        X1 is X,
-%        Y1 is Y - 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == ' '.
-%       
-%verifyCaptureDiagonal2aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        Pieceat \= ' ',
-%        X1 is X,
-%        Y1 is Y - 1, 
-%        verifyCaptureDiagonal2aux2(Board, X1, Y1, Pieceat). /* diagonal esq baixo */
-%
-%verifyCaptureDiagonal2aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%        
-%
-%verifyCaptureDiagonal2aux(Board, X, Y, _):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal2aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat,
-%        X1 is X,
-%        Y1 is Y - 1,
-%        verifyCaptureDiagonal2aux3(Board, X1, Y1, Pieceat). 
-%
-%verifyCaptureDiagonal2aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat.
-%
-%verifyCaptureDiagonal2aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal2aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        write('\nPosition of capture, diagonal direita baixo para cima\n').
-%
-%verifyCaptureDiagonal2aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%
-%verifyCaptureDiagonal2aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%/*****************************************************************************************************/
-%        
-%
-%
-%
-%/***********************************diagonal 3 -> direita cima para baixo *********************************************/
-%
-%verifyCaptureDiagonal3(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X + 1,
-%        Y1 is Y + 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 \= Pieceat,
-%        PieceAtD1 \= ' ',
-%        verifyCaptureDiagonal3aux(Board, X1, Y1, Pieceat).
-%
-%verifyCaptureDiagonal3(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X + 1,
-%        Y1 is Y + 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == Pieceat.
-%
-%verifyCaptureDiagonal3(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
-%        X1 is X + 1,
-%        Y1 is Y + 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == ' '.
-%       
-%verifyCaptureDiagonal3aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        Pieceat \= ' ',
-%        X1 is X + 1,
-%        Y1 is Y + 1, 
-%        verifyCaptureDiagonal3aux2(Board, X1, Y1, Pieceat). /* diagonal esq baixo */
-%
-%verifyCaptureDiagonal3aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%        
-%
-%verifyCaptureDiagonal3aux(Board, X, Y, _):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal3aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat,
-%        X1 is X + 1,
-%        Y1 is Y + 1,
-%        verifyCaptureDiagonal3aux3(Board, X1, Y1, Pieceat). 
-%
-%verifyCaptureDiagonal3aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat.
-%
-%verifyCaptureDiagonal3aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal3aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        write('\nPosition of capture, diagonal direita cima para baixo\n').
-%
-%verifyCaptureDiagonal3aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%
-%verifyCaptureDiagonal3aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%/*****************************************************************************************************/
-%
-%
-%
-%
-%/***********************************diagonal 4 -> esquerda baixo para cima *********************************************/
-%
-%verifyCaptureDiagonal4(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X - 1,
-%        Y1 is Y - 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 \= Pieceat,
-%        PieceAtD1 \= ' ',
-%        verifyCaptureDiagonal4aux(Board, X1, Y1, Pieceat).
-%
-%verifyCaptureDiagonal4(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X - 1,
-%        Y1 is Y - 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == Pieceat.
-%
-%verifyCaptureDiagonal4(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
-%        X1 is X - 1,
-%        Y1 is Y - 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == ' '.
-%       
-%verifyCaptureDiagonal4aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        Pieceat \= ' ',
-%        X1 is X - 1,
-%        Y1 is Y - 1, 
-%        verifyCaptureDiagonal4aux2(Board, X1, Y1, Pieceat). /* diagonal esq baixo */
-%
-%verifyCaptureDiagonal4aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%        
-%
-%verifyCaptureDiagonal4aux(Board, X, Y, _):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal4aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat,
-%        X1 is X - 1,
-%        Y1 is Y - 1,
-%        verifyCaptureDiagonal4aux3(Board, X1, Y1, Pieceat). 
-%
-%verifyCaptureDiagonal4aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat.
-%
-%verifyCaptureDiagonal4aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal4aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        write('\nPosition of capture, diagonal esquerda baixo para cima\n').
-%
-%verifyCaptureDiagonal4aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%
-%verifyCaptureDiagonal4aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%/*****************************************************************************************************/
-%
-%
-%
-%
-%
-%
-%/****************************************************************************************************/
-%/******************************************************************************************************/
-%/************************** diagonais parte de baixo do tabuleiro*********************************/
-%/****************************************************************************************************/
-%/******************************************************************************************************/
-%
-%
-%        
-%/***********************************diagonal 1 -> esq cima para baixo *********************************************/
-%verifyCaptureDiagonal11(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X - 1,
-%        Y1 is Y + 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 \= Pieceat,
-%        PieceAtD1 \= ' ',
-%        verifyCaptureDiagonal11aux(Board, X1, Y1, Pieceat).
-%
-%verifyCaptureDiagonal11(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X - 1,
-%        Y1 is Y + 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == Pieceat.
-%
-%verifyCaptureDiagonal11(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
-%        X1 is X - 1,
-%        Y1 is Y + 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == ' '.
-%       
-%verifyCaptureDiagonal11aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        Pieceat \= ' ',
-%        X1 is X - 1,
-%        Y1 is Y + 1, 
-%        verifyCaptureDiagonal11aux2(Board, X1, Y1, Pieceat). /* diagonal esq baixo */
-%
-%verifyCaptureDiagonal11aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%        
-%
-%verifyCaptureDiagonal11aux(Board, X, Y, _):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal11aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat,
-%        X1 is X - 1,
-%        Y1 is Y + 1,
-%        verifyCaptureDiagonal11aux3(Board, X1, Y1, Pieceat). 
-%
-%verifyCaptureDiagonal11aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat.
-%
-%verifyCaptureDiagonal11aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal11aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        write('\nPosition of capture, diagonal esquerda cima para baixo. Tab parte baixo\n').
-%
-%verifyCaptureDiagonal11aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%
-%verifyCaptureDiagonal11aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%/*****************************************************************************************************/
-%
-%
-%
-%
-%
-%
+
+
+verifyWinDiagonal2(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        Y1 is Y - 1,
+        returnPieceAt(Board, X, Y1, PieceAtD1), 
+        PieceAtD1 == Pieceat,
+        PieceAtD1 \= ' ',
+        verifyWinDiagonal2aux(Board, X, Y1, Pieceat).
+
+verifyWinDiagonal2(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        Y1 is Y - 1,
+        returnPieceAt(Board, X, Y1, PieceAtD1),  
+        PieceAtD1 \= Pieceat.
+
+verifyWinDiagonal2(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
+        Y1 is Y - 1,
+        returnPieceAt(Board, X, Y1, PieceAtD1), 
+        PieceAtD1 == ' '.
+       
+/**********/
+verifyWinDiagonal2aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Y1 is Y - 1,
+        verifyWinDiagonal2aux2(Board, X, Y1, Pieceat). 
+
+verifyWinDiagonal2aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+        
+verifyWinDiagonal2aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal2aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Y1 is Y - 1,
+        verifyWinDiagonal2aux3(Board, X, Y1, Pieceat). 
+
+verifyWinDiagonal2aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal2aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal2aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Y1 is Y - 1,
+        verifyWinDiagonal2aux4(Board, X, Y1, Pieceat). 
+
+verifyWinDiagonal2aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal2aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/***********/
+verifyWinDiagonal2aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'W',
+        write('\nPlayer 1 win the game, piece in bottom left to up\n').
+
+verifyWinDiagonal2aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'B',
+        write('\nPlayer 2 win the game, piece in bottom left to up\n').
+
+verifyWinDiagonal2aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal2aux4(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/*****************************************************************************************************/
+
+/*****************************************************************************************************/
+
+
+
+
+
+/***********************************diagonal 3 -> direita cima para baixo *********************************************/
+
+verifyWinDiagonal3(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X + 1,
+        Y1 is Y - 1,
+        returnPieceAt(Board, X1, Y1, PieceAtD1), 
+        PieceAtD1 == Pieceat,
+        PieceAtD1 \= ' ',
+        vverifyWinDiagonal33ux(Board, X1, Y1, Pieceat).
+
+verifyWinDiagonal3(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X + 1,
+        Y1 is Y - 1,
+        returnPieceAt(Board, X1, Y1, PieceAtD1),  
+        PieceAtD1 \= Pieceat.
+
+verifyWinDiagonal3(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
+        X1 is X + 1,
+        Y1 is Y - 1,
+        returnPieceAt(Board, X1, Y1, PieceAtD1), 
+        PieceAtD1 == ' '.
+       
+/**********/
+verifyWinDiagonal3aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X + 1,
+        Y1 is Y - 1,
+        verifyWinDiagonal3aux2(Board, X1, Y1, Pieceat). 
+
+verifyWinDiagonal3aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+        
+verifyWinDiagonal3aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal3aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X + 1,
+        Y1 is Y - 1,
+        verifyWinDiagonal3aux3(Board, X1, Y1, Pieceat). 
+
+verifyWinDiagonal3aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal3aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal3aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X + 1,
+        Y1 is Y - 1,
+        verifyWinDiagonal3aux4(Board, X1, Y1, Pieceat). 
+
+verifyWinDiagonal3aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal3aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/***********/
+verifyWinDiagonal3aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'W',
+        write('\nPlayer 1 win the game, piece in upper rigth to bottom\n').
+
+verifyWinDiagonal3aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'B',
+        write('\nPlayer 2 win the game, piece in upper rigth to bottom\n').
+
+verifyWinDiagonal3aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal3aux4(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+/*****************************************************************************************************/
+
+
+
+
+/***********************************diagonal 4 -> esquerda baixo para cima *********************************************/
+verifyWinDiagonal4(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X - 1,
+        Y1 is Y - 1,
+        returnPieceAt(Board, X1, Y1, PieceAtD1), 
+        PieceAtD1 == Pieceat,
+        PieceAtD1 \= ' ',
+        verifyWinDiagonal4aux(Board, X1, Y1, Pieceat).
+
+verifyWinDiagonal4(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X - 1,
+        Y1 is Y - 1,
+        returnPieceAt(Board, X1, Y1, PieceAtD1),  
+        PieceAtD1 \= Pieceat.
+
+verifyWinDiagonal4(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
+        X1 is X - 1,
+        Y1 is Y - 1,
+        returnPieceAt(Board, X1, Y1, PieceAtD1), 
+        PieceAtD1 == ' '.
+       
+/**********/
+verifyWinDiagonal4aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X - 1,
+        Y1 is Y - 1,
+        verifyWinDiagonal4aux2(Board, X1, Y1, Pieceat). 
+
+verifyWinDiagonal4aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+        
+verifyWinDiagonal4aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal4aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X - 1,
+        Y1 is Y - 1,
+        verifyWinDiagonal4aux3(Board, X1, Y1, Pieceat). 
+
+verifyWinDiagonal4aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal4aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal4aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X - 1,
+        Y1 is Y - 1,
+        verifyWinDiagonal4aux4(Board, X1, Y1, Pieceat). 
+
+verifyWinDiagonal4aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal4aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/***********/
+verifyWinDiagonal4aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'W',
+        write('\nPlayer 1 win the game, piece in upper rigth to bottom\n').
+
+verifyWinDiagonal4aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'B',
+        write('\nPlayer 2 win the game, piece in upper rigth to bottom\n').
+
+verifyWinDiagonal4aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal4aux4(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/*****************************************************************************************************/
+/****************************************************************************************************/
+/**************************                                        ************************************/
+/************************** diagonais parte de baixo do tabuleiro  *********************************/
+/**************************                                        ************************************/
+/******************************************************************************************************/
+/******************************************************************************************************/
+
+
+%/***********************************diagonal 1 -> esq peça em cima para baixo *********************************************/
+
+verifyWinDiagonal11(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X - 1,
+        Y1 is Y + 1,
+        returnPieceAt(Board, X1, Y1, PieceAtD1), 
+        PieceAtD1 == Pieceat,
+        PieceAtD1 \= ' ',
+        verifyWinDiagonal11aux(Board, X1, Y1, Pieceat).
+
+verifyWinDiagonal11(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X - 1,
+        Y1 is Y + 1,
+        returnPieceAt(Board, X1, Y1, PieceAtD1),  
+        PieceAtD1 \= Pieceat.
+
+verifyWinDiagonal11(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
+        X1 is X - 1,
+        Y1 is Y + 1,
+        returnPieceAt(Board, X1, Y1, PieceAtD1), 
+        PieceAtD1 == ' '.
+       
+/**********/
+verifyWinDiagonal11aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X - 1,
+        Y1 is Y + 1,
+        verifyWinDiagonal11aux2(Board, X1, Y1, Pieceat). 
+
+verifyWinDiagonal11aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+        
+verifyWinDiagonal11aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal11aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X - 1,
+        Y1 is Y + 1,
+        verifyWinDiagonal11aux3(Board, X1, Y1, Pieceat). 
+
+verifyWinDiagonal11aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal11aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal11aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X - 1,
+        Y1 is Y + 1,
+        verifyWinDiagonal11aux4(Board, X1, Y1, Pieceat). 
+
+verifyWinDiagonal11aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal11aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/***********/
+verifyWinDiagonal11aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'W',
+        write('\nPlayer 1 win the game, piece in upper left to bottom\n').
+
+verifyWinDiagonal11aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'B',
+        write('\nPlayer 2 win the game, piece in upper left to bottom\n').
+
+verifyWinDiagonal11aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal11aux4(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/*****************************************************************************************************/
+
+
+
+
 %/***********************************diagonal 2 -> direita baixo para cima *********************************************/
-%
-%verifyCaptureDiagonal21(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X + 1,
-%        Y1 is Y - 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 \= Pieceat,
-%        PieceAtD1 \= ' ',
-%        verifyCaptureDiagonal21aux(Board, X1, Y1, Pieceat).
-%
-%verifyCaptureDiagonal21(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X + 1,
-%        Y1 is Y - 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == Pieceat.
-%
-%verifyCaptureDiagonal21(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
-%        X1 is X + 1,
-%        Y1 is Y - 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == ' '.
-%       
-%verifyCaptureDiagonal21aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        Pieceat \= ' ',
-%        X1 is X + 1,
-%        Y1 is Y - 1, 
-%        verifyCaptureDiagonal21aux2(Board, X1, Y1, Pieceat). /* diagonal esq baixo */
-%
-%verifyCaptureDiagonal21aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%        
-%
-%verifyCaptureDiagonal21aux(Board, X, Y, _):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal21aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat,
-%        X1 is X + 1,
-%        Y1 is Y - 1,
-%        verifyCaptureDiagonal21aux3(Board, X1, Y1, Pieceat). 
-%
-%verifyCaptureDiagonal21aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat.
-%
-%verifyCaptureDiagonal21aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal21aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        write('\nPosition of capture, diagonal direita baixo para cima. Tab parte baixo\n').
-%
-%verifyCaptureDiagonal21aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%
-%verifyCaptureDiagonal21aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%/*****************************************************************************************************/
-%        
-%
-%
-%
-%/***********************************diagonal 3 -> direita cima para baixo *********************************************/
-%
-%verifyCaptureDiagonal31(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X,
-%        Y1 is Y + 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 \= Pieceat,
-%        PieceAtD1 \= ' ',
-%        verifyCaptureDiagonal31aux(Board, X1, Y1, Pieceat).
-%
-%verifyCaptureDiagonal31(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X,
-%        Y1 is Y + 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == Pieceat.
-%
-%verifyCaptureDiagonal31(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
-%        X1 is X,
-%        Y1 is Y + 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == ' '.
-%       
-%verifyCaptureDiagonal31aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        Pieceat \= ' ',
-%        X1 is X,
-%        Y1 is Y + 1, 
-%        verifyCaptureDiagonal31aux2(Board, X1, Y1, Pieceat). /* diagonal esq baixo */
-%
-%verifyCaptureDiagonal31aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%        
-%
-%verifyCaptureDiagonal31aux(Board, X, Y, _):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal31aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat,
-%        X1 is X,
-%        Y1 is Y + 1,
-%        verifyCaptureDiagonal31aux3(Board, X1, Y1, Pieceat). 
-%
-%verifyCaptureDiagonal31aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat.
-%
-%verifyCaptureDiagonal31aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal31aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        write('\nPosition of capture, diagonal direita cima para baixo. Tab parte baixo\n').
-%
-%verifyCaptureDiagonal31aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%
-%verifyCaptureDiagonal31aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%/*****************************************************************************************************/
-%
-%
-%
-%
-%/***********************************diagonal 4 -> esquerda baixo para cima *********************************************/
-%
-%verifyCaptureDiagonal41(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X,
-%        Y1 is Y - 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 \= Pieceat,
-%        PieceAtD1 \= ' ',
-%        verifyCaptureDiagonal41aux(Board, X1, Y1, Pieceat).
-%
-%verifyCaptureDiagonal41(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
-%        X1 is X,
-%        Y1 is Y - 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == Pieceat.
-%
-%verifyCaptureDiagonal41(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
-%        X1 is X,
-%        Y1 is Y - 1,
-%        returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
-%        PieceAtD1 == ' '.
-%       
-%verifyCaptureDiagonal41aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        Pieceat \= ' ',
-%        X1 is X,
-%        Y1 is Y - 1, 
-%        verifyCaptureDiagonal41aux2(Board, X1, Y1, Pieceat). /* diagonal esq baixo */
-%
-%verifyCaptureDiagonal41aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%        
-%
-%verifyCaptureDiagonal41aux(Board, X, Y, _):-  returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal41aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat,
-%        X1 is X,
-%        Y1 is Y - 1,
-%        verifyCaptureDiagonal41aux3(Board, X1, Y1, Pieceat). 
-%
-%verifyCaptureDiagonal41aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat.
-%
-%verifyCaptureDiagonal41aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%
-%verifyCaptureDiagonal41aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior \= Pieceat,
-%        write('\nPosition of capture, diagonal esquerda baixo para cima. Tab parte baixo\n').
-%
-%verifyCaptureDiagonal41aux3(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
-%        PieceAnterior == Pieceat.
-%
-%verifyCaptureDiagonal41aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
-%        Pieceat == ' '.
-%
-%/*****************************************************************************************************/
-%
+
+
+verifyWinDiagonal22(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X + 1,
+        Y1 is Y - 1,
+        returnPieceAt(Board, X1, Y1, PieceAtD1), 
+        PieceAtD1 == Pieceat,
+        PieceAtD1 \= ' ',
+        verifyWinDiagonal22aux(Board, X1, Y1, Pieceat).
+
+verifyWinDiagonal22(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X + 1,
+        Y1 is Y - 1,
+        returnPieceAt(Board, X1, Y1, PieceAtD1),  
+        PieceAtD1 \= Pieceat.
+
+verifyWinDiagonal22(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
+        X1 is X + 1,
+        Y1 is Y - 1,
+        returnPieceAt(Board, X1, Y1, PieceAtD1), 
+        PieceAtD1 == ' '.
+       
+/**********/
+verifyWinDiagonal22aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X + 1,
+        Y1 is Y - 1,
+        verifyWinDiagonal22aux2(Board, X1, Y1, Pieceat). 
+
+verifyWinDiagonal22aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+        
+verifyWinDiagonal22aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal22aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X + 1,
+        Y1 is Y - 1,
+        verifyWinDiagonal22aux3(Board, X1, Y1, Pieceat). 
+
+verifyWinDiagonal22aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal22aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal22aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X + 1,
+        Y1 is Y - 1,
+        verifyWinDiagonal22aux4(Board, X1, Y1, Pieceat). 
+
+verifyWinDiagonal22aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal22aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/***********/
+verifyWinDiagonal22aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'W',
+        write('\nPlayer 1 win the game, piece in bottom right to up\n').
+
+verifyWinDiagonal22aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'B',
+        write('\nPlayer 2 win the game, piece in bottom right to up\n').
+
+verifyWinDiagonal22aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal22aux4(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/*****************************************************************************************************/
+
+/*****************************************************************************************************/
+
+
+
+
+
+/***********************************diagonal 3 -> direita cima para baixo *********************************************/
+
+verifyWinDiagonal33(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        Y1 is Y - 1,
+        returnPieceAt(Board, X, Y1, PieceAtD1), 
+        PieceAtD1 == Pieceat,
+        PieceAtD1 \= ' ',
+        verifyWinDiagonal33aux(Board, X, Y1, Pieceat).
+
+verifyWinDiagonal33(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        Y1 is Y - 1,
+        returnPieceAt(Board, X, Y1, PieceAtD1),  
+        PieceAtD1 \= Pieceat.
+
+verifyWinDiagonal33(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
+        Y1 is Y - 1,
+        returnPieceAt(Board, X, Y1, PieceAtD1), 
+        PieceAtD1 == ' '.
+       
+/**********/
+verifyWinDiagonal33aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Y1 is Y - 1,
+        verifyWinDiagonal33aux2(Board, X, Y1, Pieceat). 
+
+verifyWinDiagonal33aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+        
+verifyWinDiagonal33aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal33aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Y1 is Y - 1,
+        verifyWinDiagonal33aux3(Board, X, Y1, Pieceat). 
+
+verifyWinDiagonal33aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal33aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal33aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Y1 is Y - 1,
+        verifyWinDiagonal33aux4(Board, X, Y1, Pieceat). 
+
+verifyWinDiagonal33aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal33aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/***********/
+verifyWinDiagonal33aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'W',
+        write('\nPlayer 1 win the game, piece in upper rigth to bottom\n').
+
+verifyWinDiagonal33aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'B',
+        write('\nPlayer 2 win the game, piece in upper rigth to bottom\n').
+
+verifyWinDiagonal33aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal33aux4(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+/*****************************************************************************************************/
+
+
+
+
+/***********************************diagonal 4 -> esquerda baixo para cima *********************************************/
+
+verifyWinDiagonal44(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        Y1 is Y - 1,
+        returnPieceAt(Board, X, Y1, PieceAtD1), 
+        PieceAtD1 == Pieceat,
+        PieceAtD1 \= ' ',
+        verifyWinDiagonal44aux(Board, X, Y1, Pieceat).
+
+verifyWinDiagonal44(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        Y1 is Y - 1,
+        returnPieceAt(Board, X, Y1, PieceAtD1),  
+        PieceAtD1 \= Pieceat.
+
+verifyWinDiagonal44(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
+        Y1 is Y - 1,
+        returnPieceAt(Board, X, Y1, PieceAtD1), 
+        PieceAtD1 == ' '.
+       
+/**********/
+verifyWinDiagonal44aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Y1 is Y - 1,
+        verifyWinDiagonal44aux2(Board, X, Y1, Pieceat). 
+
+verifyWinDiagonal44aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+        
+verifyWinDiagonal44aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal44aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Y1 is Y - 1,
+        verifyWinDiagonal44aux3(Board, X, Y1, Pieceat). 
+
+verifyWinDiagonal44aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal44aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinDiagonal44aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Y1 is Y - 1,
+        verifyWinDiagonal44aux4(Board, X, Y1, Pieceat). 
+
+verifyWinDiagonal44aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal44aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/***********/
+verifyWinDiagonal44aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'W',
+        write('\nPlayer 1 win the game, piece in bootom left to up\n').
+
+verifyWinDiagonal44aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'B',
+        write('\nPlayer 2 win the game, piece in bootom left to up\n').
+
+verifyWinDiagonal44aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinDiagonal44aux4(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+
+
+
+/*****************************************************************************************/
+/*****************************************************************************************/
+/********************************                             ****************************/
+/********************************                             ****************************/
+/******************************** verifical win na horizontal ****************************/
+/********************************                             ****************************/
+/********************************                             ****************************/
+/*****************************************************************************************/
+/*****************************************************************************************/
+
+%horizontal esq to dir
+verifyWinHorizontal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X + 1,
+        returnPieceAt(Board, X1, Y, PieceAtD1), 
+        PieceAtD1 == Pieceat,
+        PieceAtD1 \= ' ',
+        verifyWinHorizontal1aux(Board, X1, Y, Pieceat).
+
+verifyWinHorizontal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X + 1,
+        returnPieceAt(Board, X1, Y, PieceAtD1), 
+        PieceAtD1 \= Pieceat.
+
+verifyWinHorizontal1(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
+        X1 is X + 1,
+        returnPieceAt(Board, X1, Y, PieceAtD1), 
+        PieceAtD1 == ' '.
+       
+/**********/
+verifyWinHorizontal1aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X + 1,
+        verifyWinHorizontal1aux2(Board, X1, Y, Pieceat). 
+
+verifyWinHorizontal1aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+        
+verifyWinHorizontal1aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinHorizontal1aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X + 1,
+        verifyWinHorizontal1aux3(Board, X1, Y, Pieceat). 
+
+verifyWinHorizontal1aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinHorizontal1aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinHorizontal1aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X + 1,
+        verifyWinHorizontal1aux4(Board, X1, Y, Pieceat). 
+
+verifyWinHorizontal1aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinHorizontal1aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/***********/
+verifyWinHorizontal1aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'W',
+        write('\nPlayer 1 win the game, left to right\n').
+
+verifyWinHorizontal1aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'B',
+        write('\nPlayer 2 win the game, left to right\n').
+
+verifyWinHorizontal1aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinHorizontal1aux4(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/*****************************************************************************************************/
+
+
+/******************************** *************** ************************/
+
+%horizontal dir to esq
+verifyWinHorizontal2(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X - 1,
+        returnPieceAt(Board, X1, Y, PieceAtD1), 
+        PieceAtD1 == Pieceat,
+        PieceAtD1 \= ' ',
+        verifyWinHorizontal2aux(Board, X1, Y, Pieceat).
+
+verifyWinHorizontal2(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
+        X1 is X - 1,
+        returnPieceAt(Board, X1, Y, PieceAtD1), 
+        PieceAtD1 \= Pieceat.
+
+verifyWinHorizontal2(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
+        X1 is X - 1,
+        returnPieceAt(Board, X1, Y, PieceAtD1), 
+        PieceAtD1 == ' '.
+       
+/**********/
+verifyWinHorizontal2aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X - 1,
+        verifyWinHorizontal2aux2(Board, X1, Y, Pieceat). 
+
+verifyWinHorizontal2aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+        
+verifyWinHorizontal2aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinHorizontal2aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X - 1,
+        verifyWinHorizontal2aux3(Board, X1, Y, Pieceat). 
+
+verifyWinHorizontal2aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinHorizontal2aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/**********/
+verifyWinHorizontal2aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        X1 is X - 1,
+        verifyWinHorizontal2aux4(Board, X1, Y, Pieceat). 
+
+verifyWinHorizontal2aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinHorizontal2aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/***********/
+verifyWinHorizontal2aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'W',
+        write('\nPlayer 1 win the game, right to left\n').
+
+verifyWinHorizontal2aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior == Pieceat,
+        Pieceat == 'B',
+        write('\nPlayer 2 win the game, right to left\n').
+
+verifyWinHorizontal2aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
+        PieceAnterior \= Pieceat.
+
+verifyWinHorizontal2aux4(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat), 
+        Pieceat == ' '.
+
+/*****************************************************************************************************/
