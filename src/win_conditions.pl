@@ -2,19 +2,52 @@
 
         
 %Para verificar se a jogada é uma jogada de win
-isWinCondition(Board,X,Y) :- %verifyWinDiagonals(Board, X,Y).
+isWinCondition(Board,X,Y) :- verifyWinDiagonals(Board, X,Y),
         verifyWinHorizontal(Board, X,Y).
 
 
 /******************** parte de cima do tabuleiro**********************/
 
-%linha1 ate linha 4
-verifyWinDiagonals(Board,X,Y):- Y < 5,
+%linha1 ate linha 2
+verifyWinDiagonals(Board,X,Y):- Y < 3,
         verifyWinDiagonal1(Board, X, Y),
         verifyWinDiagonal3(Board, X, Y).
+
+%linha3
+verifyWinDiagonals(Board,X,Y):- Y == 3,
+        X == 1,
+        verifyWinDiagonal3(Board, X, Y).
+
+%linha3
+verifyWinDiagonals(Board,X,Y):- Y == 3,
+        X > 1,
+        X < 7,
+        verifyWinDiagonal1(Board, X, Y),
+        verifyWinDiagonal3(Board, X, Y).
+%linha3
+verifyWinDiagonals(Board,X,Y):- Y == 3,
+        X == 7,
+        verifyWinDiagonal1(Board, X, Y).
+
+%linha4
+verifyWinDiagonals(Board,X,Y):- Y == 4,
+        X < 3,
+        verifyWinDiagonal3(Board, X, Y).
+
+%linha4
+verifyWinDiagonals(Board,X,Y):- Y == 4,
+        X > 2,
+        X < 7,
+        verifyWinDiagonal1(Board, X, Y),
+        verifyWinDiagonal3(Board, X, Y).
+%linha4
+verifyWinDiagonals(Board,X,Y):- Y == 4,
+        X > 6,
+        verifyWinDiagonal1(Board, X, Y).
+
 %linha5
 verifyWinDiagonals(Board,X,Y):- Y == 5,
-        X < 3,
+        X < 4,
         verifyWinDiagonal2(Board, X, Y),
         verifyWinDiagonal3(Board, X, Y).
 
@@ -92,7 +125,7 @@ verifyWinDiagonals(Board,X,Y):- Y == 7,
         verifyWinDiagonal44(Board, X, Y).
 %linha7
 verifyWinDiagonals(Board,X,Y):- Y == 7,
-        X > 7,
+        X > 6,
         verifyWinDiagonal11(Board, X, Y),
         verifyWinDiagonal44(Board, X, Y).
 

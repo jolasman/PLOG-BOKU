@@ -163,21 +163,21 @@ verifyWinDiagonal2aux4(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 
 verifyWinDiagonal3(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
         X1 is X + 1,
-        Y1 is Y - 1,
+        Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), 
         PieceAtD1 == Pieceat,
         PieceAtD1 \= ' ',
-        vverifyWinDiagonal33ux(Board, X1, Y1, Pieceat).
+        verifyWinDiagonal3aux(Board, X1, Y1, Pieceat).
 
 verifyWinDiagonal3(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
         X1 is X + 1,
-        Y1 is Y - 1,
+        Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1),  
         PieceAtD1 \= Pieceat.
 
 verifyWinDiagonal3(Board, X,Y):- returnPieceAt(Board, X, Y, _), 
         X1 is X + 1,
-        Y1 is Y - 1,
+        Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), 
         PieceAtD1 == ' '.
        
@@ -185,7 +185,7 @@ verifyWinDiagonal3(Board, X,Y):- returnPieceAt(Board, X, Y, _),
 verifyWinDiagonal3aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         X1 is X + 1,
-        Y1 is Y - 1,
+        Y1 is Y + 1,
         verifyWinDiagonal3aux2(Board, X1, Y1, Pieceat). 
 
 verifyWinDiagonal3aux(Board, X, Y, PieceAnterior):-  returnPieceAt(Board, X, Y, Pieceat), 
@@ -198,7 +198,7 @@ verifyWinDiagonal3aux(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 verifyWinDiagonal3aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         X1 is X + 1,
-        Y1 is Y - 1,
+        Y1 is Y + 1,
         verifyWinDiagonal3aux3(Board, X1, Y1, Pieceat). 
 
 verifyWinDiagonal3aux2(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -211,7 +211,7 @@ verifyWinDiagonal3aux2(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 verifyWinDiagonal3aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         X1 is X + 1,
-        Y1 is Y - 1,
+        Y1 is Y + 1,
         verifyWinDiagonal3aux4(Board, X1, Y1, Pieceat). 
 
 verifyWinDiagonal3aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
