@@ -1,4 +1,5 @@
-/***********************************diagonal 1 -> esq cima para baixo *********************************************/
+/*******************************************************************  Piece  *************************/
+/***********************************diagonal 1 -> esq cima para baixo / *********************************************/
 verifyCaptureDiagonal1(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
         X1 is X,
         Y1 is Y + 1,
@@ -65,8 +66,8 @@ verifyCaptureDiagonal1aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat)
 
 
 
-/***********************************diagonal 2 -> direita baixo para cima *********************************************/
-
+/***********************************diagonal 2 -> direita baixo para cima   / ***************************/
+/**********************************************************************  Piece ******************/
 verifyCaptureDiagonal2(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
         X1 is X,
         Y1 is Y - 1,
@@ -130,8 +131,8 @@ verifyCaptureDiagonal2aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat)
         
 
 
-
-/***********************************diagonal 3 -> direita cima para baixo *********************************************/
+/********************************************************************** Piece **************************/
+/***********************************diagonal 3 -> direita cima para baixo \ *********************************************/
 
 verifyCaptureDiagonal3(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
         X1 is X + 1,
@@ -197,8 +198,8 @@ verifyCaptureDiagonal3aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat)
 
 
 
-/***********************************diagonal 4 -> esquerda baixo para cima *********************************************/
-
+/***********************************diagonal 4 -> esquerda baixo para cima  \ *********************************************/
+/*************************************************************************  Piece *******************/
 verifyCaptureDiagonal4(Board, X,Y):- returnPieceAt(Board, X, Y, Pieceat), 
         X1 is X - 1,
         Y1 is Y - 1,
