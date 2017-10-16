@@ -6,8 +6,8 @@ changePieceAtCapture(Board1, Xpos, Ypos, Board2) :- returnPieceAt(Board1,Xpos,Yp
         
         
 %Para verificar se a jogada é uma jogada em que pode ser feita uma captura
-isCapturePlay(Board,X,Y) :- verifyCaptureDiagonals(Board, X,Y).
-       % verifyCaptureHorizontal(Board, X,Y).
+isCapturePlay(Board,X,Y) :- verifyCaptureDiagonals(Board, X,Y),
+        verifyCaptureHorizontal(Board, X,Y).
 
 
 
@@ -223,23 +223,26 @@ verifyCaptureDiagonals(Board,X,Y):- Y == 7,
 /******************************** verifical captura na horizontal ************************/
 %linha1
 verifyCaptureHorizontal(Board,X,Y):- Y == 1,
-        X == 1,
+        X < 3,
         verifyCaptureHorizontal1(Board,X,Y).
 %linha1
 verifyCaptureHorizontal(Board,X,Y):- Y == 1,
-        X == 5,
+        X > 3,
         verifyCaptureHorizontal2(Board,X,Y).
+%linha1
+verifyCaptureHorizontal(_,X,Y):- Y == 1,
+        X == 3.
 %linha2
 verifyCaptureHorizontal(Board,X,Y):- Y == 2,
-        X < 3,
+        X < 4,
         verifyCaptureHorizontal1(Board,X,Y).
 %linha2  
 verifyCaptureHorizontal(Board,X,Y):- Y == 2,
-        X > 4,
+        X > 3,
         verifyCaptureHorizontal2(Board,X,Y).
 %linha3
 verifyCaptureHorizontal(Board,X,Y):- Y == 3,
-        X < 4,
+        X < 5,
         verifyCaptureHorizontal1(Board,X,Y).
 %linha3  
 verifyCaptureHorizontal(Board,X,Y):- Y == 3,
@@ -247,15 +250,15 @@ verifyCaptureHorizontal(Board,X,Y):- Y == 3,
         verifyCaptureHorizontal2(Board,X,Y).  
 %linha4
 verifyCaptureHorizontal(Board,X,Y):- Y == 4,
-        X < 5,
+        X < 6,
         verifyCaptureHorizontal1(Board,X,Y).
 %linha4  
 verifyCaptureHorizontal(Board,X,Y):- Y == 4,
-        X > 4,
+        X > 3,
         verifyCaptureHorizontal2(Board,X,Y).  
 %linha5
 verifyCaptureHorizontal(Board,X,Y):- Y == 5,
-        X < 6,
+        X < 7,
         verifyCaptureHorizontal1(Board,X,Y).
 %linha5  
 verifyCaptureHorizontal(Board,X,Y):- Y == 5,
@@ -263,7 +266,7 @@ verifyCaptureHorizontal(Board,X,Y):- Y == 5,
         verifyCaptureHorizontal2(Board,X,Y). 
 %linha6
 verifyCaptureHorizontal(Board,X,Y):- Y == 6,
-        X < 7,
+        X < 8,
         verifyCaptureHorizontal1(Board,X,Y).
 %linha6  
 verifyCaptureHorizontal(Board,X,Y):- Y == 6,
@@ -271,7 +274,7 @@ verifyCaptureHorizontal(Board,X,Y):- Y == 6,
         verifyCaptureHorizontal2(Board,X,Y). 
 %linha7
 verifyCaptureHorizontal(Board,X,Y):- Y == 7,
-        X < 6,
+        X < 7,
         verifyCaptureHorizontal1(Board,X,Y).
 %linha7  
 verifyCaptureHorizontal(Board,X,Y):- Y == 7,
@@ -279,36 +282,42 @@ verifyCaptureHorizontal(Board,X,Y):- Y == 7,
         verifyCaptureHorizontal2(Board,X,Y). 
 %linha8
 verifyCaptureHorizontal(Board,X,Y):- Y == 8,
-        X < 5,
+        X < 6,
         verifyCaptureHorizontal1(Board,X,Y).
 %linha8 
 verifyCaptureHorizontal(Board,X,Y):- Y == 8,
         X > 4,
-        verifyCaptureHorizontal2(Board,X,Y).
+        verifyCaptureHorizontal2(Board,X,Y). 
 %linha9
 verifyCaptureHorizontal(Board,X,Y):- Y == 9,
+        X < 5,
+        verifyCaptureHorizontal1(Board,X,Y).
+%linha9
+verifyCaptureHorizontal(Board,X,Y):- Y == 9,
+        X > 4,
+        verifyCaptureHorizontal2(Board,X,Y).
+%linha10
+verifyCaptureHorizontal(Board,X,Y):- Y == 10,
         X < 4,
         verifyCaptureHorizontal1(Board,X,Y).
-%linha9
-verifyCaptureHorizontal(Board,X,Y):- Y == 9,
+%linha10
+verifyCaptureHorizontal(Board,X,Y):- Y == 10,
         X > 4,
         verifyCaptureHorizontal2(Board,X,Y).
 %linha10
-verifyCaptureHorizontal(Board,X,Y):- Y == 10,
+verifyCaptureHorizontal(_,X,Y):- Y == 10,
+        X == 4.
+%linha11
+verifyCaptureHorizontal(Board,X,Y):- Y == 11,
         X < 3,
         verifyCaptureHorizontal1(Board,X,Y).
-%linha10
-verifyCaptureHorizontal(Board,X,Y):- Y == 10,
-        X > 4,
-        verifyCaptureHorizontal2(Board,X,Y).
 %linha11
 verifyCaptureHorizontal(Board,X,Y):- Y == 11,
-        X == 1,
-        verifyCaptureHorizontal1(Board,X,Y).
-%linha11
-verifyCaptureHorizontal(Board,X,Y):- Y == 11,
-        X == 5,
+        X > 3,
         verifyCaptureHorizontal2(Board,X,Y).
+%linha11
+verifyCaptureHorizontal(_,X,Y):- Y == 11,
+        X == 3.
 
 
 %horizontal esq to dir
