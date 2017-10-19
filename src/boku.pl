@@ -1,6 +1,6 @@
 /*******************************
-* para correr o jogo e' consultar este ficheiro e fazer start(X). *
-*******************************/
+   * para correr o jogo e' consultar este ficheiro e fazer start(X). *
+   *******************************/
 
 :- include('print.pl').
 :- include('board.pl').
@@ -22,8 +22,8 @@ playGame(X) :-
         printBoard(X2),
         playGame(X2).
 
-      
-player1turn(Board1, Board2) :-
+
+player1turn(Board1, Board3) :-
         write('\nPlayer 1\n'),
         write('Choose the position where you want to place your piece (X and then Y):\n'),
         write('X: '),
@@ -33,10 +33,13 @@ player1turn(Board1, Board2) :-
         read(Ypos),
         write('\n'),
         verifyCoordenates(Board1, Xpos, Ypos,'W', Board2),
-        isCapturePlay(Board2, Xpos, Ypos),
-        isWinCondition(Board2,Xpos,Ypos).
+        isCapturePlay(Board2, Xpos, Ypos, Board3),
+        write('chegou a player1 trurn'),
+        write(Board3),
+        write('\n').
+% isWinCondition(Board3,Xpos,Ypos).
 
-player2turn(Board1, Board2) :-
+player2turn(Board1, Board3) :-
         write('\nPlayer 2\n'),
         write('Choose the position where you want to place your piece (X and then Y):\n'),
         write('X: '),
@@ -46,8 +49,11 @@ player2turn(Board1, Board2) :-
         read(Ypos),
         write('\n'),
         verifyCoordenates(Board1, Xpos, Ypos,'B', Board2),
-        isCapturePlay(Board2, Xpos, Ypos),
-        isWinCondition(Board2,Xpos,Ypos).
+        isCapturePlay(Board2, Xpos, Ypos,Board3),
+        write('chegou a player2 trurn'),
+        write(Board3),
+        write('\n').
+%isWinCondition(Board3,Xpos,Ypos).
 
 
 
