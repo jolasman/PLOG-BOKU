@@ -1,8 +1,13 @@
 
 /*************************************** captura **************************************/
 %Para verificar se a jogada é uma jogada em que pode ser feita uma captura
-isCapturePlay(Board,X,Y,Board2) :- verifyCaptureDiagonals(Board, X,Y,Board2).
-%verifyCaptureHorizontal(Board, X,Y,Board2).
+isCapturePlay(Board,X,Y,Board2) :- verifyCaptureDiagonals(Board, X,Y,Board1),
+        Board \= Board1,
+        append([],Board1,Board2).
+%Para verificar se a jogada é uma jogada em que pode ser feita uma captura
+isCapturePlay(Board,X,Y,BoardR) :- verifyCaptureDiagonals(Board, X,Y,Board1),
+        Board == Board1,
+        verifyCaptureHorizontal(Board,X,Y,BoardR).
 
 
 %%Para alterar a peça (para vazio) quando é feita a captura
@@ -75,6 +80,82 @@ changePieceAtCaptureAux(Board1,_,_,X2,Y2,Board2,_,Xpos,Ypos) :-
         append([],Board1, Board2),
         write('Wrong coordenate. You lost your turn.  y2 diferente\n'),
         write('\n').
+
+/*********************************************************/
+
+%%Para alterar a peça (para vazio) quando é feita a captura na horizontal
+changePieceAtCaptureHorizontal(Board1,X1,X2,Y,Board3, Piece) :-
+        pieceAtcaptureHorizontalAux(Board1,X1,X2,Y,Board3, Piece).
+
+pieceAtcaptureHorizontalAux(Board1,X1,X2,Y,Board3, Piece):- Piece == 'W',
+        write('\n[Player 1]\n'),
+        write('\nCoordenates to remove\n'),
+        write(X1),write(Y),write('\n'),
+        write(X2),write(Y),write('\n'),
+        write('\n[Player 1]\n'),
+        write('Choose the piece of your opponent you want to remove\n'),
+        write('X: '),
+        read(Xpos),
+        write('\n'),
+        write('Y: '),
+        read(Ypos),
+        write('\n'),
+        changePieceAtCaptureHorizontalAux(Board1,X1,X2,Y,Board3,Piece,Xpos,Ypos).
+
+pieceAtcaptureHorizontalAux(Board1,X1,X2,Y,Board3, Piece) :- Piece == 'B',
+        write('\n[Player 2]\n'),
+        write('Choose the piece of your opponent you want to remove\n'),
+        write('X: '),
+        read(Xpos),
+        write('\n'),
+        write('Y: '),
+        read(Ypos),
+        write('\n'),
+        changePieceAtCaptureHorizontalAux(Board1,X1,X2,Y,Board3,Piece,Xpos, Ypos).
+
+changePieceAtCaptureHorizontalAux(Board1,X1,_,Y,Board3, Piece,Xpos,Ypos) :- returnPieceAt(Board1,X1,Y,Pieceat), 
+        X1 == Xpos,
+        Y == Ypos,
+        %        Pieceat \= ' ',
+        Piece \= Pieceat,
+        setPieceAt(Board1,Xpos,Ypos,Board3,' ').
+
+
+changePieceAtCaptureHorizontalAux(Board1,_,X2,Y,Board3, Piece,Xpos, Ypos) :- returnPieceAt(Board1,X2,Y,Pieceat),
+        X2 == Xpos,
+        Y == Ypos,
+        %        Pieceat \= ' ',
+        Piece \= Pieceat,
+        setPieceAt(Board1,Xpos,Ypos,Board3,' ').
+%
+%changePieceAtCaptureHorizontalAux(Board1,X1,_,_,Board2,_,Xpos,_) :-  
+%        X1 \= Xpos,
+%        append([],Board1, Board2),
+%        write('Wrong coordenates. You lost your turn.  X1 diferente\n'),
+%        write('\n').
+%
+%changePieceAtCaptureHorizontalAux(Board1,_,X2,_,Board2,_,Xpos,_) :-  
+%        X2 \= Xpos,
+%        append([],Board1, Board2),
+%        write('Wrong coordenate. You lost your turn.  X2 diferente\n'),
+%        write('\n').
+%
+%changePieceAtCaptureHorizontalAux(Board1,X1,_,Y,Board2,_,Xpos,Ypos) :-  
+%        X1 == Xpos,
+%        Y \= Ypos,
+%        append([],Board1, Board2),
+%        write('Wrong coordenate. You lost your turn.  y1 diferente\n'),
+%        write('\n').
+%
+%changePieceAtCaptureHorizontalAux(Board1,_,X2,Y,Board2,_,Xpos,Ypos) :-  
+%        X2 == Xpos,
+%        Y \= Ypos,
+%        append([],Board1, Board2),
+%        write('Wrong coordenate. You lost your turn.  y2 diferente\n'),
+%        write('\n').
+%
+
+
 
 
 /******************** parte de cima do tabuleiro**********************/
@@ -308,10 +389,6 @@ verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
         verifyCaptureDiagonal2(Board,X,Y,Board2),
         Board == Board2,
         verifyCaptureDiagonal4(Board,X,Y,BoardR).
-
-
-
-
 %%linha 6
 verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 6,
         X < 4, 
@@ -330,7 +407,7 @@ verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 6,
         X < 7, 
         verifyCaptureDiagonal1(Board,X,Y,Board1),
         Board \= Board1,
-        append([],Board1,BOardR).
+        append([],Board1,BoardR).
 %%linha 6
 verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 6,
         X > 3, 
@@ -616,6 +693,9 @@ verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 7,
 
 /******************************** verifical captura na horizontal ************************/
 %linha1
+verifyCaptureHorizontal(_,X,Y,_):- Y == 1,
+        X == 3.
+%linha1
 verifyCaptureHorizontal(Board,X,Y,Board2):- Y == 1,
         X < 3,
         verifyCaptureHorizontal1(Board,X,Y,Board2).
@@ -623,9 +703,6 @@ verifyCaptureHorizontal(Board,X,Y,Board2):- Y == 1,
 verifyCaptureHorizontal(Board,X,Y,Board2):- Y == 1,
         X > 3,
         verifyCaptureHorizontal2(Board,X,Y,Board2).
-%linha1
-verifyCaptureHorizontal(_,X,Y):- Y == 1,
-        X == 3.
 %linha2
 verifyCaptureHorizontal(Board,X,Y,Board2):- Y == 2,
         X < 4,
@@ -691,6 +768,9 @@ verifyCaptureHorizontal(Board,X,Y,Board2):- Y == 9,
         X > 4,
         verifyCaptureHorizontal2(Board,X,Y,Board2).
 %linha10
+verifyCaptureHorizontal(_,X,Y,_):- Y == 10,
+        X == 4.
+%linha10
 verifyCaptureHorizontal(Board,X,Y,Board2):- Y == 10,
         X < 4,
         verifyCaptureHorizontal1(Board,X,Y,Board2).
@@ -698,12 +778,9 @@ verifyCaptureHorizontal(Board,X,Y,Board2):- Y == 10,
 verifyCaptureHorizontal(Board,X,Y,Board2):- Y == 10,
         X > 4,
         verifyCaptureHorizontal2(Board,X,Y,Board2).
-%linha10
-verifyCaptureHorizontal(_,X,Y,_):- Y == 10,
-        X == 4.
 %linha11
 verifyCaptureHorizontal(Board,X,Y,Board2):- Y == 11,
-        %        X < 3,
+        X < 3,
         verifyCaptureHorizontal1(Board,X,Y,Board2).
 %linha11
 verifyCaptureHorizontal(Board,X,Y,Board2):- Y == 11,

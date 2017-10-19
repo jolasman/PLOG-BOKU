@@ -689,7 +689,7 @@ verifyCaptureHorizontal1aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boa
         write('\nPosition of capture, horizontal esquerda para a direita\n'),
         X1 is X - 1,
         X2 is X1 - 1,
-        changePieceAtCapture(Board,X1,Y,X2,Y,Board2, Pieceat).
+        changePieceAtCaptureHorizontal(Board,X1,X2,Y,Board2, Pieceat).
 
 verifyCaptureHorizontal1aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
@@ -763,7 +763,7 @@ verifyCaptureHorizontal2aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boa
         write('\nPosition of capture, horizontal direita para a esquerda\n'),
         X1 is X + 1,
         X2 is X1 + 1,
-        changePieceAtCapture(Board,X1,Y,X2,Y,Board2, Pieceat).
+        changePieceAtCaptureHorizontal(Board,X1,X2,Y,Board2, Pieceat).
 
 verifyCaptureHorizontal2aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
