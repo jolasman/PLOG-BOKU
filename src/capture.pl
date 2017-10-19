@@ -227,39 +227,119 @@ verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 4,
         append([],Board1,BoardR).
 
 %linha5
-verifyCaptureDiagonals(Board,X,Y,Board2):- Y == 5,
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
         X < 3,
-        verifyCaptureDiagonal2(Board,X,Y,Board2),
-        verifyCaptureDiagonal3(Board,X,Y,Board2).
+        verifyCaptureDiagonal2(Board,X,Y,Board1),
+        Board == Board1,
+        verifyCaptureDiagonal3(Board,X,Y,BoardR).
+%linha5
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
+        X < 3,
+        verifyCaptureDiagonal2(Board,X,Y,Board1),
+        Board \= Board1,
+        append([],Board1,BoardR).
 
 %%linha5
-verifyCaptureDiagonals(Board,X,Y,Board2):- Y == 5,
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
         X == 3,
-        verifyCaptureDiagonal1(Board,X,Y,Board2),
+        verifyCaptureDiagonal1(Board,X,Y,Board1),
+        Board == Board1,
         verifyCaptureDiagonal2(Board,X,Y,Board2),
-        verifyCaptureDiagonal3(Board,X,Y,Board2).
+        Board == Board2,
+        verifyCaptureDiagonal3(Board,X,Y,BoardR).
 
 %%linha5
-verifyCaptureDiagonals(Board,X,Y,Board2):- Y == 5,
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
+        X == 3,
+        verifyCaptureDiagonal1(Board,X,Y,Board1),
+        Board == Board1,
+        verifyCaptureDiagonal2(Board,X,Y,Board2),
+        Board \= Board2,
+        append([],Board2,BoardR).
+%%linha5
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
+        X == 3,
+        verifyCaptureDiagonal1(Board,X,Y,Board1),
+        Board \= Board1,
+        append([],Board1,BoardR).
+
+%%linha5
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
         X > 3,
         X < 7,
-        verifyCaptureDiagonal1(Board,X,Y,Board2),
+        verifyCaptureDiagonal1(Board,X,Y,Board1),
+        Board == Board1,
         verifyCaptureDiagonal2(Board,X,Y,Board2),
-        verifyCaptureDiagonal3(Board,X,Y,Board2),
-        verifyCaptureDiagonal4(Board,X,Y,Board2).
+        Board == Board2,
+        verifyCaptureDiagonal3(Board,X,Y,Board3),
+        Board == Board3,
+        verifyCaptureDiagonal4(Board,X,Y,BoardR).
+%%linha5
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
+        X > 3,
+        X < 7,
+        verifyCaptureDiagonal1(Board,X,Y,Board1),
+        Board == Board1,
+        verifyCaptureDiagonal2(Board,X,Y,Board2),
+        Board == Board2,
+        verifyCaptureDiagonal3(Board,X,Y,Board3),
+        Board \= Board3,
+        append([],Board3,BoardR).
+%%linha5
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
+        X > 3,
+        X < 7,
+        verifyCaptureDiagonal1(Board,X,Y,Board1),
+        Board == Board1,
+        verifyCaptureDiagonal2(Board,X,Y,Board2),
+        Board \= Board2,
+        append([],Board2,BoardR).
+%%linha5
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
+        X > 3,
+        X < 7,
+        verifyCaptureDiagonal1(Board,X,Y,Board1),
+        Board \= Board1,
+        append([],Board1,BoardR).
 %
 %%linha5
-verifyCaptureDiagonals(Board,X,Y,Board2):- Y == 5,
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
         X == 7,
-        verifyCaptureDiagonal1(Board,X,Y,Board2),
+        verifyCaptureDiagonal1(Board,X,Y,Board1),
+        Board == Board1,
         verifyCaptureDiagonal2(Board,X,Y,Board2),
-        verifyCaptureDiagonal4(Board,X,Y,Board2).
-
+        Board == Board2,
+        verifyCaptureDiagonal4(Board,X,Y,BoardR).
 %%linha5
-verifyCaptureDiagonals(Board,X,Y,Board2):- Y == 5,
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
+        X == 7,
+        verifyCaptureDiagonal1(Board,X,Y,Board1),
+        Board == Board1,
+        verifyCaptureDiagonal2(Board,X,Y,Board2),
+        Board \= Board2,
+        append([],Board2,BoardR).
+%%linha5
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
+        X == 7,
+        verifyCaptureDiagonal1(Board,X,Y,Board1),
+        Board \= Board1,
+        append([],Board1,BoardR).
+%%linha5
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
         X > 7,
-        verifyCaptureDiagonal1(Board,X,Y,Board2),
-        verifyCaptureDiagonal4(Board,X,Y,Board2).
+        verifyCaptureDiagonal1(Board,X,Y,Board1),
+        Board == Board1,
+        verifyCaptureDiagonal4(Board,X,Y,BoardR).
+%%linha5
+verifyCaptureDiagonals(Board,X,Y,BoardR):- Y == 5,
+        X > 7,
+        verifyCaptureDiagonal1(Board,X,Y,Board1),
+        Board \= Board1,
+        append([],Board1,BoardR).
+
+
+
+
 
 %%linha 6
 verifyCaptureDiagonals(Board,X,Y,Board2):- Y == 6,
