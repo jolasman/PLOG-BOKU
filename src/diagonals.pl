@@ -62,10 +62,7 @@ verifyCaptureDiagonal1aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board
         Y1 is Y - 1,
         X2 is X1,
         Y2 is Y1 - 1,
-        changePieceAtCapture(Board,X1,Y1,X2,Y2,Board2, Pieceat),
-        write('diagonal1'),
-        write('\nBoard2'),
-        write('\n').
+        changePieceAtCapture(Board,X1,Y1,X2,Y2,Board2, Pieceat).
 
 verifyCaptureDiagonal1aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
@@ -143,10 +140,7 @@ verifyCaptureDiagonal2aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board
         Y1 is Y + 1,
         X2 is X1,
         Y2 is Y1 + 1,
-        changePieceAtCapture(Board,X1,Y1,X2,Y2,Board2, Pieceat),
-        write('diagonal2'),
-        write(Board2),
-        write('\n').
+        changePieceAtCapture(Board,X1,Y1,X2,Y2,Board2, Pieceat).
 
 verifyCaptureDiagonal2aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,

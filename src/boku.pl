@@ -33,10 +33,7 @@ player1turn(Board1, Board3) :-
         read(Ypos),
         write('\n'),
         verifyCoordenates(Board1, Xpos, Ypos,'W', Board2),
-        isCapturePlay(Board2, Xpos, Ypos, Board3),
-        write('chegou a player1 trurn'),
-        write(Board3),
-        write('\n').
+        isCapturePlay(Board2, Xpos, Ypos, Board3).
 % isWinCondition(Board3,Xpos,Ypos).
 
 player2turn(Board1, Board3) :-
@@ -49,10 +46,7 @@ player2turn(Board1, Board3) :-
         read(Ypos),
         write('\n'),
         verifyCoordenates(Board1, Xpos, Ypos,'B', Board2),
-        isCapturePlay(Board2, Xpos, Ypos,Board3),
-        write('chegou a player2 trurn'),
-        write(Board3),
-        write('\n').
+        isCapturePlay(Board2, Xpos, Ypos,Board3).
 %isWinCondition(Board3,Xpos,Ypos).
 
 
