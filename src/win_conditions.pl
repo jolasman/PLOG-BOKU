@@ -98,12 +98,27 @@ verifyWinDiagonals(Board,X,Y):- Y == 6,
 /******************** parte de baixo do tabuleiro**********************/
 
 
-%linha11
-verifyWinDiagonals(Board,X,Y):- Y > 7,
+%linha10 e 11
+verifyWinDiagonals(Board,X,Y):- Y > 9,
         Y < 12,
         X > 0,
         verifyWinDiagonal44(Board, X, Y),
         verifyWinDiagonal22(Board, X, Y).
+%linha8
+verifyWinDiagonals(Board,X,Y):- Y == 8,
+        X < 3,
+        verifyWinDiagonal22(Board, X, Y).
+%linha8
+verifyWinDiagonals(Board,X,Y):- Y == 8,
+        X > 2,
+        X < 7,
+        verifyWinDiagonal22(Board, X, Y),
+        verifyWinDiagonal44(Board, X, Y).
+%linha8
+verifyWinDiagonals(Board,X,Y):- Y == 8,
+        X > 6,
+        verifyWinDiagonal44(Board, X, Y).
+
 %linha7
 verifyWinDiagonals(Board,X,Y):- Y == 7,
         X < 4,

@@ -60,12 +60,12 @@ verifyWinDiagonal1aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 verifyWinDiagonal1aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'W',
-        write('\nPlayer 1 win the game, piece in upper left to bottom\n').
+        write('\nPlayer 1 win the game!\n').
 
 verifyWinDiagonal1aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'B',
-        write('\nPlayer 2 win the game, piece in upper left to bottom\n').
+        write('\nPlayer 2 win the game!\n').
 
 verifyWinDiagonal1aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat.
@@ -138,12 +138,12 @@ verifyWinDiagonal2aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 verifyWinDiagonal2aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'W',
-        write('\nPlayer 1 win the game, piece in bottom left to up\n').
+        write('\nPlayer 1 win the game!\n').
 
 verifyWinDiagonal2aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'B',
-        write('\nPlayer 2 win the game, piece in bottom left to up\n').
+        write('\nPlayer 2 win the game!\n').
 
 verifyWinDiagonal2aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat.
@@ -224,12 +224,12 @@ verifyWinDiagonal3aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 verifyWinDiagonal3aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'W',
-        write('\nPlayer 1 win the game, piece in upper rigth to bottom\n').
+        write('\nPlayer 1 win the game!\n').
 
 verifyWinDiagonal3aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'B',
-        write('\nPlayer 2 win the game, piece in upper rigth to bottom\n').
+        write('\nPlayer 2 win the game!\n').
 
 verifyWinDiagonal3aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat.
@@ -305,12 +305,12 @@ verifyWinDiagonal4aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 verifyWinDiagonal4aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'W',
-        write('\nPlayer 1 win the game, piece in upper rigth to bottom\n').
+        write('\nPlayer 1 win the game!\n').
 
 verifyWinDiagonal4aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'B',
-        write('\nPlayer 2 win the game, piece in upper rigth to bottom\n').
+        write('\nPlayer 2 win the game!\n').
 
 verifyWinDiagonal4aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat.
@@ -392,12 +392,12 @@ verifyWinDiagonal11aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 verifyWinDiagonal11aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'W',
-        write('\nPlayer 1 win the game, piece in upper left to bottom\n').
+        write('\nPlayer 1 win the game!\n').
 
 verifyWinDiagonal11aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'B',
-        write('\nPlayer 2 win the game, piece in upper left to bottom\n').
+        write('\nPlayer 2 win the game!\n').
 
 verifyWinDiagonal11aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat.
@@ -476,12 +476,12 @@ verifyWinDiagonal22aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 verifyWinDiagonal22aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'W',
-        write('\nPlayer 1 win the game, piece in bottom right to up\n').
+        write('\nPlayer 1 win the game!\n').
 
 verifyWinDiagonal22aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'B',
-        write('\nPlayer 2 win the game, piece in bottom right to up\n').
+        write('\nPlayer 2 win the game!\n').
 
 verifyWinDiagonal22aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat.
@@ -556,12 +556,12 @@ verifyWinDiagonal33aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 verifyWinDiagonal33aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'W',
-        write('\nPlayer 1 win the game, piece in upper rigth to bottom\n').
+        write('\nPlayer 1 win the game!\n').
 
 verifyWinDiagonal33aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'B',
-        write('\nPlayer 2 win the game, piece in upper rigth to bottom\n').
+        write('\nPlayer 2 win the game!\n').
 
 verifyWinDiagonal33aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat.
@@ -632,12 +632,12 @@ verifyWinDiagonal44aux3(Board, X, Y, _):- returnPieceAt(Board, X, Y, Pieceat),
 verifyWinDiagonal44aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'W',
-        write('\nPlayer 1 win the game, piece in bootom left to up\n').
+        write('\nPlayer 1 win the game!\n').
 
 verifyWinDiagonal44aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'B',
-        write('\nPlayer 2 win the game, piece in bootom left to up\n').
+        write('\nPlayer 2 win the game!\n').
 
 verifyWinDiagonal44aux4(Board, X, Y,PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat.

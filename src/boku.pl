@@ -33,8 +33,8 @@ player1turn(Board1, Board3) :-
         read(Ypos),
         write('\n'),
         verifyCoordenates(Board1, Xpos, Ypos,'W', Board2),
-        isCapturePlay(Board2, Xpos, Ypos, Board3).
-% isWinCondition(Board3,Xpos,Ypos).
+        isCapturePlay(Board2, Xpos, Ypos, Board3),
+        isWinCondition(Board3,Xpos,Ypos).
 
 player2turn(Board1, Board3) :-
         write('\nPlayer 2\n'),
@@ -46,10 +46,17 @@ player2turn(Board1, Board3) :-
         read(Ypos),
         write('\n'),
         verifyCoordenates(Board1, Xpos, Ypos,'B', Board2),
-        isCapturePlay(Board2, Xpos, Ypos,Board3).
-%isWinCondition(Board3,Xpos,Ypos).
+        isCapturePlay(Board2, Xpos, Ypos,Board3),
+        isWinCondition(Board3,Xpos,Ypos).
 
 
+%       repeat,   
+%        player1turn(X, X1, X1pos,Y1pos),
+%        printBoard(X1),
+%        (isWinCondition(X1,X1pos,Y1pos);
+%         player2turn(X1, X2, X2pos,Y2pos),
+%         printBoard(X2),
+%         isWinCondition(X2,X2pos,Y2pos)).
 
 
 
