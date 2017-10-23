@@ -1,9 +1,13 @@
 /*************************************** win conditions **************************************/
 
-        
+
 %Para verificar se a jogada é uma jogada de win
-isWinCondition(Board,X,Y) :- verifyWinDiagonals(Board, X,Y),
-        verifyWinHorizontal(Board, X,Y).
+isWinCondition(Board,X,Y) :- write('isconditionwin  '),
+        verifyWinDiagonals(Board, X,Y),
+        write('fez win diagonals').
+
+isWinCondition(Board,X,Y) :- verifyWinHorizontal(Board, X,Y),
+        write('fez win horizontals').
 
 
 /******************** parte de cima do tabuleiro**********************/
@@ -155,10 +159,6 @@ verifyWinHorizontal(Board,X,Y):- Y == 1,
 verifyWinHorizontal(Board,X,Y):- Y == 1,
         X == 5,
         verifyWinHorizontal2(Board,X,Y).
-%linha1
-verifyWinHorizontal(_,X,Y):- Y == 1,
-        X > 1,
-        X < 5.
 %linha2
 verifyWinHorizontal(Board,X,Y):- Y == 2,
         X < 3,
@@ -167,10 +167,6 @@ verifyWinHorizontal(Board,X,Y):- Y == 2,
 verifyWinHorizontal(Board,X,Y):- Y == 2,
         X > 4,
         verifyWinHorizontal2(Board,X,Y).
-%linha2
-verifyWinHorizontal(_,X,Y):- Y == 2,
-        X > 2,
-        X < 5.
 %linha3
 verifyWinHorizontal(Board,X,Y):- Y == 3,
         X < 3,
@@ -179,10 +175,6 @@ verifyWinHorizontal(Board,X,Y):- Y == 3,
 verifyWinHorizontal(Board,X,Y):- Y == 3,
         X > 4,
         verifyWinHorizontal2(Board,X,Y).  
-%linha3  
-verifyWinHorizontal(_,X,Y):- Y == 3,
-        X > 2,
-        X < 5.  
 %linha4
 verifyWinHorizontal(Board,X,Y):- Y == 4,
         X < 5,
@@ -231,9 +223,6 @@ verifyWinHorizontal(Board,X,Y):- Y == 9,
 verifyWinHorizontal(Board,X,Y):- Y == 9,
         X > 4,
         verifyWinHorizontal2(Board,X,Y).
-%linha9
-verifyWinHorizontal(_,X,Y):- Y == 9,
-        X == 4.
 %linha10
 verifyWinHorizontal(Board,X,Y):- Y == 10,
         X < 3,
@@ -242,10 +231,6 @@ verifyWinHorizontal(Board,X,Y):- Y == 10,
 verifyWinHorizontal(Board,X,Y):- Y == 10,
         X > 4,
         verifyWinHorizontal2(Board,X,Y).
-%linha10
-verifyWinHorizontal(_,X,Y):- Y == 10,
-        X > 2,
-        X < 5.
 %linha11
 verifyWinHorizontal(Board,X,Y):- Y == 11,
         X == 1,
@@ -254,9 +239,5 @@ verifyWinHorizontal(Board,X,Y):- Y == 11,
 verifyWinHorizontal(Board,X,Y):- Y == 11,
         X == 5,
         verifyWinHorizontal2(Board,X,Y).
-%linha11
-verifyWinHorizontal(_,X,Y):- Y == 11,
-        X > 1,
-        X < 5.
 
 

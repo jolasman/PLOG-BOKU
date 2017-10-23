@@ -26,44 +26,42 @@ generateEmptyBoard(X) :-
         append(X10, [L11], X11),
         append(X11, [L12], X).
 
-
-
 emptyBoardAux(L, N) :-
         N == 1,
-        append([],[' ',' ',' ',' ',' ','E','E','E','E','E'],L).
+        L = [' ',' ',' ',' ',' ','E','E','E','E','E'].
 emptyBoardAux(L, N) :-
         N == 2,
-        append([],[' ',' ',' ',' ',' ',' ','E','E','E','E'],L).
+        L =[' ',' ',' ',' ',' ',' ','E','E','E','E'].
 emptyBoardAux(L, N) :-
         N == 3,
-        append([],[' ',' ',' ',' ',' ',' ',' ','E','E','E'],L).
+        L =[' ',' ',' ',' ',' ',' ',' ','E','E','E'].
 emptyBoardAux(L, N) :-
         N == 4,
-        append([],[' ',' ',' ',' ',' ',' ',' ',' ','E','E'],L).
+        L =[' ',' ',' ',' ',' ',' ',' ',' ','E','E'].
 emptyBoardAux(L, N) :-
         N == 5,
-        append([],[' ',' ',' ',' ',' ',' ',' ',' ',' ','E'],L).
+        L =[' ',' ',' ',' ',' ',' ',' ',' ',' ','E'].
 emptyBoardAux(L, N) :-
         N == 6,
-        append([],[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','E'],L).
+        L =[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','E'].
 emptyBoardAux(L, N) :-
         N == 7,
-        append([],[' ',' ',' ',' ',' ',' ',' ',' ',' ','E'],L).
+        L =[' ',' ',' ',' ',' ',' ',' ',' ',' ','E'].
 emptyBoardAux(L, N) :-
         N == 8,
-        append([],[' ',' ',' ',' ',' ',' ',' ',' ','E','E'],L).
+        L =[' ',' ',' ',' ',' ',' ',' ',' ','E','E'].
 emptyBoardAux(L, N) :-
         N == 9,
-        append([],[' ',' ',' ',' ',' ',' ',' ', 'E','E','E'],L).
+        L =[' ',' ',' ',' ',' ',' ',' ', 'E','E','E'].
 emptyBoardAux(L, N) :-
         N == 10,
-        append([],[' ',' ',' ',' ',' ',' ','E','E','E','E'],L).
+        L =[' ',' ',' ',' ',' ',' ','E','E','E','E'].
 emptyBoardAux(L, N) :-
         N == 11,
-        append([],[' ',' ',' ',' ',' ','E','E','E','E','E'],L).
+        L =[' ',' ',' ',' ',' ','E','E','E','E','E'].
 emptyBoardAux(L, N) :-
         N == 12,
-        append([],['1','2','3','4','5','6','7','8','9','10'],L).
+        L =['1','2','3','4','5','6','7','8','9','10'].
 
 
 /*********************************** verificação das jogadas  ***************************/
@@ -88,9 +86,6 @@ verifyCoordenates(Board1, Xpos, Ypos, Piece, Board2) :- returnPieceAt(Board1,Xpo
         write('\n'),
         write('\n'),
         setPieceAt(Board1, Xpos,Ypos, Board2, Piece).
-
-
-
 /**********************************************************************************************/
         
 
@@ -99,7 +94,6 @@ verifyCoordenates(Board1, Xpos, Ypos, Piece, Board2) :- returnPieceAt(Board1,Xpo
 
 %Para efectuar a jogada que o jogador indicou, após verificação da mesma
 setPieceAt(Board1, Xpos, Ypos, Board2, Piece) :- changePiece(Board1, 1, Xpos, Ypos, Piece, Board2).
-
 
 %recebe o tabuleiro de jogo e isola a coluna pretendida.
 changePiece([B|Bs], N, X, Y, Piece, Board2) :-
@@ -112,7 +106,6 @@ changePiece([B|Bs], N, X, Y, Piece, Board2) :-
         N2 is N + 1,
         changePiece(Bs, N2, X, Y, Piece, BoardAux), %chamo com as restantes listas da lista (colunas) com o aux vazio
         append([B], BoardAux, Board2). % guardo a lista nao alterada em Board2.
-
 
 %percorre a linha e coloca a peça na posicao X tendo em conta a coluna (lista) escolhida em change piece
 changeLinePiece([_|Ls], N, X, Piece, L2) :-
@@ -133,7 +126,6 @@ changeLinePiece([L|Ls], N, X, Piece, L2) :-
 returnPieceAt(Board, X, Y, Piece) :- boardLine(Board, 1, Y, Line), % começa no 1 por causa da linha dos numeros
         linePiece(Line, 1, X, Piece). %tem de ser com 1 para dar certo na linha. devido ao changelinepice ser 1 tambem
        
-
 %recebe o tabuleira e isola a lista que é referente à coluna do tabuleiro
 boardLine([B|_], N, Y, Line) :-
         N == Y,
