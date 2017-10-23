@@ -258,12 +258,12 @@ verifyWinDiagonal22aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y,
 verifyWinDiagonal22aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'W',
-        write('\nPlayer 1 win the game!\n',nl,nl).
+        write('\nPlayer 1 win the game!\n'),nl,nl.
 
 verifyWinDiagonal22aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'B',
-        write('\nPlayer 2 win the game!\n',nl,nl).
+        write('\nPlayer 2 win the game!\n'),nl,nl.
 
 /*****************************************************************************************************/
 
@@ -302,12 +302,12 @@ verifyWinDiagonal33aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y,
 verifyWinDiagonal33aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'W',
-        write('\nPlayer 1 win the game!\n',nl,nl).
+        write('\nPlayer 1 win the game!\n'),nl,nl.
 
 verifyWinDiagonal33aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'B',
-        write('\nPlayer 2 win the game!\n',nl,nl).
+        write('\nPlayer 2 win the game!\n'),nl,nl.
 
 /*****************************************************************************************************/
 
@@ -343,7 +343,7 @@ verifyWinDiagonal44aux3(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y,
 verifyWinDiagonal44aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
         Pieceat == 'W',
-        write('\nPlayer 1 win the game!\n',nl,nl).
+        write('\nPlayer 1 win the game!\n'),nl,nl.
 
 verifyWinDiagonal44aux4(Board, X, Y, PieceAnterior):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,

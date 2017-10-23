@@ -16,9 +16,9 @@ changePieceAtCapture(Board1,X1,Y1,X2,Y2,Board2, Piece) :-
 
 pieceAtcaptureAux(Board1,X1,Y1,X2,Y2,Board2, Piece):- Piece == 'W',
         write('\n[Player 1]\n'),
-        write('\nCoordenates to remove\n'),
-        write(X1),write(Y1),write('\n'),
-        write(X2),write(Y2),write('\n'),
+        write('\nCoordenates of the pieces that you can remove:(xy)\n'),
+        write(X1),write(Y1),nl,
+        write(X2),write(Y2),nl,
         write('\n[Player 1]\n'),
         write('Choose the piece of your opponent you want to remove\n'),
         write('X: '),
@@ -31,7 +31,9 @@ pieceAtcaptureAux(Board1,X1,Y1,X2,Y2,Board2, Piece):- Piece == 'W',
 
 pieceAtcaptureAux(Board1,X1,Y1,X2,Y2,Board2, Piece) :- Piece == 'B',
         write('\n[Player 2]\n'),
-        write('Choose the piece of your opponent you want to remove\n'),
+        write('Coordenates of the pieces that you can remove:(xy)\n'),
+        write(X1),write(Y1),nl,
+        write(X2),write(Y2),nl,
         write('X: '),
         read(Xpos),
         write('\n'),
@@ -43,7 +45,6 @@ pieceAtcaptureAux(Board1,X1,Y1,X2,Y2,Board2, Piece) :- Piece == 'B',
 changePieceAtCaptureAux(Board1,X1,Y1,_,_,Board2, Piece,Xpos,Ypos) :- returnPieceAt(Board1,X1,Y1,Pieceat), 
         X1 == Xpos,
         Y1 == Ypos,
-        %        Pieceat \= ' ',
         Piece \= Pieceat,
         setPieceAt(Board1,Xpos,Ypos,Board2,' ').
 
@@ -51,33 +52,32 @@ changePieceAtCaptureAux(Board1,X1,Y1,_,_,Board2, Piece,Xpos,Ypos) :- returnPiece
 changePieceAtCaptureAux(Board1,_,_,X2,Y2,Board2, Piece,Xpos, Ypos) :- returnPieceAt(Board1,X2,Y2,Pieceat),
         X2 == Xpos,
         Y2 == Ypos,
-        %        Pieceat \= ' ',
         Piece \= Pieceat,
         setPieceAt(Board1, Xpos, Ypos, Board2, ' ').
 
 changePieceAtCaptureAux(Board1,X1,_,_,_,Board2,_,Xpos,_) :-  
         X1 \= Xpos,
-        append([],Board1, Board2),
+        Board1 = Board2,
         write('Wrong coordenates. You lost your turn.  X1 diferente\n'),
         write('\n').
 
 changePieceAtCaptureAux(Board1,_,_,X2,_,Board2,_,Xpos,_) :-  
         X2 \= Xpos,
-        append([],Board1, Board2),
+        Board1 = Board2,
         write('Wrong coordenate. You lost your turn.  X2 diferente\n'),
         write('\n').
 
 changePieceAtCaptureAux(Board1,X1,Y1,_,_,Board2,_,Xpos,Ypos) :-  
         X1 == Xpos,
         Y1 \= Ypos,
-        append([],Board1, Board2),
+        Board1 = Board2,
         write('Wrong coordenate. You lost your turn.  y1 diferente\n'),
         write('\n').
 
 changePieceAtCaptureAux(Board1,_,_,X2,Y2,Board2,_,Xpos,Ypos) :-  
         X2 == Xpos,
         Y2 \= Ypos,
-        append([],Board1, Board2),
+        Board1 = Board2,
         write('Wrong coordenate. You lost your turn.  y2 diferente\n'),
         write('\n').
 
@@ -116,7 +116,6 @@ pieceAtcaptureHorizontalAux(Board1,X1,X2,Y,Board3, Piece) :- Piece == 'B',
 changePieceAtCaptureHorizontalAux(Board1,X1,_,Y,Board3, Piece,Xpos,Ypos) :- returnPieceAt(Board1,X1,Y,Pieceat), 
         X1 == Xpos,
         Y == Ypos,
-        %        Pieceat \= ' ',
         Piece \= Pieceat,
         setPieceAt(Board1,Xpos,Ypos,Board3,' ').
 
@@ -124,36 +123,34 @@ changePieceAtCaptureHorizontalAux(Board1,X1,_,Y,Board3, Piece,Xpos,Ypos) :- retu
 changePieceAtCaptureHorizontalAux(Board1,_,X2,Y,Board3, Piece,Xpos, Ypos) :- returnPieceAt(Board1,X2,Y,Pieceat),
         X2 == Xpos,
         Y == Ypos,
-        %        Pieceat \= ' ',
         Piece \= Pieceat,
         setPieceAt(Board1,Xpos,Ypos,Board3,' ').
 
 changePieceAtCaptureHorizontalAux(Board1,X1,_,_,Board2,_,Xpos,_) :-  
         X1 \= Xpos,
-        append([],Board1, Board2),
+        Board1 = Board2,
         write('Wrong coordenates. You lost your turn.  X1 diferente\n'),
         write('\n').
 
 changePieceAtCaptureHorizontalAux(Board1,_,X2,_,Board2,_,Xpos,_) :-  
         X2 \= Xpos,
-        append([],Board1, Board2),
+        Board1 = Board2,
         write('Wrong coordenate. You lost your turn.  X2 diferente\n'),
         write('\n').
 
 changePieceAtCaptureHorizontalAux(Board1,X1,_,Y,Board2,_,Xpos,Ypos) :-  
         X1 == Xpos,
         Y \= Ypos,
-        append([],Board1, Board2),
+        Board1 = Board2,
         write('Wrong coordenate. You lost your turn.  y1 diferente\n'),
         write('\n').
 
 changePieceAtCaptureHorizontalAux(Board1,_,X2,Y,Board2,_,Xpos,Ypos) :-  
         X2 == Xpos,
         Y \= Ypos,
-        append([],Board1, Board2),
+        Board1 = Board2,
         write('Wrong coordenate. You lost your turn.  y2 diferente\n'),
         write('\n').
-
 
 
 /******************** parte de cima do tabuleiro, VERIFICA QUE DIAGONAIS USAR**********************/

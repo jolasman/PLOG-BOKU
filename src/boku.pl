@@ -15,6 +15,8 @@ start(X) :-
         printBoard(X),
         playGame(X).
 
+%se o player1 ganhar faz endgame, se nao ganhar verifica se o player dois ganha ou nao.
+%se o player2 ganhar acaba, se nao ganhar chama de novo
 playGame(X) :- p1(P1xpos, P1ypos),          
         playerturn(X, X1, P1xpos, P1ypos, 'W'),
         printBoard(X1),
@@ -51,7 +53,6 @@ playerturn(Board1, Board3, Xpos, Ypos, Player) :-
         verifyCoordenates(Board1, Xpos, Ypos,Player, Board2),
         isCapturePlay(Board2, Xpos, Ypos, Board3).
 
-
 endGame(_):- 
         write('****************************************************'),nl,
         write('******************           ***********************'),nl,
@@ -60,6 +61,7 @@ endGame(_):-
         write('****************************************************'),nl,
         write('*************** Boku Version 1.0 *******************'),nl,
         write('***************                  *******************'),nl,
-        write('****************************************************'),nl,nl,nl,nl,nl,nl,nl,nl,nl.
+        write('****************************************************'),nl,
+        nl,nl,nl,nl,nl,nl,nl,nl.
 
 

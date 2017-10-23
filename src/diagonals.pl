@@ -13,14 +13,14 @@ verifyCaptureDiagonal1(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, Pieceat),
         Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal1(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, _), 
         X1 is X,
         Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal1aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
@@ -31,12 +31,12 @@ verifyCaptureDiagonal1aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board
 
 verifyCaptureDiagonal1aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal1aux(Board,X,Y,_,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal1aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -47,11 +47,11 @@ verifyCaptureDiagonal1aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board
 
 verifyCaptureDiagonal1aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal1aux2(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal1aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -66,11 +66,11 @@ verifyCaptureDiagonal1aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board
 
 verifyCaptureDiagonal1aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal1aux3(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /*****************************************************************************************************/
 
@@ -91,14 +91,14 @@ verifyCaptureDiagonal2(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, Pieceat),
         Y1 is Y - 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal2(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, _), 
         X1 is X,
         Y1 is Y - 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal2aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
@@ -109,12 +109,12 @@ verifyCaptureDiagonal2aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board
 
 verifyCaptureDiagonal2aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal2aux(Board,X,Y,_,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal2aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -125,11 +125,11 @@ verifyCaptureDiagonal2aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board
 
 verifyCaptureDiagonal2aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal2aux2(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal2aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -144,11 +144,11 @@ verifyCaptureDiagonal2aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board
 
 verifyCaptureDiagonal2aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal2aux3(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /*****************************************************************************************************/
 
@@ -170,14 +170,14 @@ verifyCaptureDiagonal3(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, Pieceat),
         Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal3(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, _), 
         X1 is X + 1,
         Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal3aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
@@ -188,12 +188,12 @@ verifyCaptureDiagonal3aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board
 
 verifyCaptureDiagonal3aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal3aux(Board,X,Y,_,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal3aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -204,11 +204,11 @@ verifyCaptureDiagonal3aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board
 
 verifyCaptureDiagonal3aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal3aux2(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal3aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -223,11 +223,11 @@ verifyCaptureDiagonal3aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board
 
 verifyCaptureDiagonal3aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal3aux3(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /*****************************************************************************************************/
 
@@ -249,14 +249,14 @@ verifyCaptureDiagonal4(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, Pieceat),
         Y1 is Y - 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal4(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, _), 
         X1 is X - 1,
         Y1 is Y - 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal4aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
@@ -267,12 +267,12 @@ verifyCaptureDiagonal4aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board
 
 verifyCaptureDiagonal4aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal4aux(Board,X,Y,_,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal4aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -283,11 +283,11 @@ verifyCaptureDiagonal4aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board
 
 verifyCaptureDiagonal4aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal4aux2(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal4aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -302,11 +302,11 @@ verifyCaptureDiagonal4aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board
 
 verifyCaptureDiagonal4aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal4aux3(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /*****************************************************************************************************/
 
@@ -332,14 +332,14 @@ verifyCaptureDiagonal11(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, Pieceat),
         Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal11(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, _), 
         X1 is X - 1,
         Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal11aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
@@ -350,12 +350,12 @@ verifyCaptureDiagonal11aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Boar
 
 verifyCaptureDiagonal11aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal11aux(Board,X,Y,_,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal11aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -366,11 +366,11 @@ verifyCaptureDiagonal11aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boar
 
 verifyCaptureDiagonal11aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal11aux2(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal11aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -385,11 +385,11 @@ verifyCaptureDiagonal11aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boar
 
 verifyCaptureDiagonal11aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal11aux3(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /*****************************************************************************************************/
 
@@ -410,14 +410,14 @@ verifyCaptureDiagonal21(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, Pieceat),
         Y1 is Y - 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal21(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, _), 
         X1 is X + 1,
         Y1 is Y - 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal21aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
@@ -428,12 +428,12 @@ verifyCaptureDiagonal21aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Boar
 
 verifyCaptureDiagonal21aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal21aux(Board,X,Y,_,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal21aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -444,11 +444,11 @@ verifyCaptureDiagonal21aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boar
 
 verifyCaptureDiagonal21aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal21aux2(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal21aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -463,11 +463,11 @@ verifyCaptureDiagonal21aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boar
 
 verifyCaptureDiagonal21aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal21aux3(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /*****************************************************************************************************/
 
@@ -489,14 +489,14 @@ verifyCaptureDiagonal31(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, Pieceat),
         Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal31(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, _), 
         X1 is X,
         Y1 is Y + 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal31aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
@@ -507,12 +507,12 @@ verifyCaptureDiagonal31aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Boar
 
 verifyCaptureDiagonal31aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal31aux(Board,X,Y,_,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal31aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -523,11 +523,11 @@ verifyCaptureDiagonal31aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boar
 
 verifyCaptureDiagonal31aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal31aux2(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal31aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -542,11 +542,11 @@ verifyCaptureDiagonal31aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boar
 
 verifyCaptureDiagonal31aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal31aux3(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /*****************************************************************************************************/
 
@@ -568,14 +568,14 @@ verifyCaptureDiagonal41(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, Pieceat),
         Y1 is Y - 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal41(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, _), 
         X1 is X,
         Y1 is Y - 1,
         returnPieceAt(Board, X1, Y1, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal41aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
@@ -586,12 +586,12 @@ verifyCaptureDiagonal41aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Boar
 
 verifyCaptureDiagonal41aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal41aux(Board,X,Y,_,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal41aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -602,11 +602,11 @@ verifyCaptureDiagonal41aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boar
 
 verifyCaptureDiagonal41aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal41aux2(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 
 verifyCaptureDiagonal41aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -621,11 +621,11 @@ verifyCaptureDiagonal41aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boar
 
 verifyCaptureDiagonal41aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureDiagonal41aux3(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /*****************************************************************************************************/
 
@@ -645,13 +645,13 @@ verifyCaptureHorizontal1(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, Pieceat)
         X1 is X + 1,
         returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureHorizontal1(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, _), 
         X1 is X + 1,
         returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /**********/
 verifyCaptureHorizontal1aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
@@ -662,11 +662,11 @@ verifyCaptureHorizontal1aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Boa
 
 verifyCaptureHorizontal1aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureHorizontal1aux(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /**********/
 verifyCaptureHorizontal1aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -676,11 +676,11 @@ verifyCaptureHorizontal1aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boa
 
 verifyCaptureHorizontal1aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureHorizontal1aux2(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /***********/
 verifyCaptureHorizontal1aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -693,11 +693,11 @@ verifyCaptureHorizontal1aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boa
 
 verifyCaptureHorizontal1aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureHorizontal1aux3(Board, X, Y,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /*****************************************************************************************************/
 
@@ -719,13 +719,13 @@ verifyCaptureHorizontal2(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, Pieceat)
         X1 is X - 1,
         returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureHorizontal2(Board,X,Y,Board2):- returnPieceAt(Board, X, Y, _), 
         X1 is X - 1,
         returnPieceAt(Board, X1, Y, PieceAtD1), /* diagonal esq baixo */
         PieceAtD1 == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /**********/
 verifyCaptureHorizontal2aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
@@ -736,11 +736,11 @@ verifyCaptureHorizontal2aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Boa
 
 verifyCaptureHorizontal2aux(Board,X,Y,PieceAnterior,Board2):-  returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureHorizontal2aux(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /**********/
 verifyCaptureHorizontal2aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -750,11 +750,11 @@ verifyCaptureHorizontal2aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boa
 
 verifyCaptureHorizontal2aux2(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior \= Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureHorizontal2aux2(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /***********/
 verifyCaptureHorizontal2aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
@@ -767,10 +767,10 @@ verifyCaptureHorizontal2aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Boa
 
 verifyCaptureHorizontal2aux3(Board,X,Y,PieceAnterior,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         PieceAnterior == Pieceat,
-        append([],Board,Board2).
+        Board = Board2.
 
 verifyCaptureHorizontal2aux3(Board,X,Y,_,Board2):- returnPieceAt(Board, X, Y, Pieceat), 
         Pieceat == ' ',
-        append([],Board,Board2).
+        Board = Board2.
 
 /*****************************************************************************************************/
