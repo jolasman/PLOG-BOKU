@@ -9,6 +9,7 @@
 :- include('diagonals_win.pl').
 :- include('win_conditions.pl').
 
+?- use_module(library(system)).
 ?- use_module(library(random)).
 
 boku(_):- 
@@ -39,12 +40,15 @@ start(X) :-
         printBoard(X),
         playGame(X).
 
-pvsPC(_) :- printMenu(X),
+pvsPC(X) :- printMenu(X),
         generateEmptyBoard(X),
         printBoard(X),
         playGamevsPC(X).
 
-pcvsPC(_) :- write('ainda nao esta feito pc pc').
+pcvsPC(X) :-  printMenu(X),
+        generateEmptyBoard(X),
+        printBoard(X),
+        playGamePCvsPC(X).
 
 exit(_) :- nl,nl,write('See you later!!!!'),nl,nl.
 
@@ -66,10 +70,21 @@ playGamevsPC(X) :- p1(P1xpos, P1ypos),
         printBoard(X1),
         (isWinCondition(X1,P1xpos,P1ypos),nl, endGame(_);
          p2PC(P2xpos, P2ypos),          
-         pc2Turn(X1, X2, P2xpos,P2ypos, 'B'),
+         playerturn(X1, X2, P2xpos,P2ypos, 'B'),
          printBoard(X2),
          (isWinCondition(X2,P2xpos,P2ypos),nl,endGame(_);
           \+isWinCondition(X2,P2xpos,P2ypos), playGamevsPC(X2)) ).
+
+%pc vs pc
+playGamePCvsPC(X) :- p1PC(P1xpos, P1ypos),          
+        playerturn(X, X1, P1xpos, P1ypos, 'W'),
+        printBoard(X1),
+        (isWinCondition(X1,P1xpos,P1ypos),nl, endGame(_);
+         p2PC(P2xpos, P2ypos),          
+         playerturn(X1, X2, P2xpos,P2ypos, 'B'),
+         printBoard(X2),
+         (isWinCondition(X2,P2xpos,P2ypos),nl,endGame(_);
+          \+isWinCondition(X2,P2xpos,P2ypos), playGamePCvsPC(X2)) ).
 
 
 
@@ -96,11 +111,26 @@ p2(P2xpos, P2ypos):- write('\nPlayer 2\n'),
         write('\n').
 
 
+p1PC(P2xpos, P2ypos):- write('\nPlayer 1 - Computer\n'),
+        write('Player 1 is choosing his move!\n'),
+        sleep(2),
+        generateRandomMove(P2xpos,P2ypos),nl,
+        write('X: '),
+        write(P2xpos),nl,
+        write('y: '),
+        write(P2ypos),nl,
+        sleep(1),
+        write('\n').
+
 p2PC(P2xpos, P2ypos):- write('\nPlayer 2 - Computer\n'),
         write('Player 2 is choosing his move!\n'),
+        sleep(2),
         generateRandomMove(P2xpos,P2ypos),nl,
+        write('X: '),
         write(P2xpos),nl,
+        write('y: '),
         write(P2ypos),nl,
+        sleep(1),
         write('\n').
 
 generateRandomMove(Xpos,Ypos) :-
@@ -118,10 +148,6 @@ playerturn(Board1, Board3, Xpos, Ypos, Player) :-
         verifyCoordenates(Board1, Xpos, Ypos,Player, Board2),
         isCapturePlay(Board2, Xpos, Ypos, Board3).
 
-
-pc2Turn(Board1, Board3, Xpos, Ypos, Player) :-
-        verifyCoordenates(Board1, Xpos, Ypos,Player, Board2),
-        isCapturePlay(Board2, Xpos, Ypos, Board3).
 
 endGame(_):- 
         write('****************************************************'),nl,
