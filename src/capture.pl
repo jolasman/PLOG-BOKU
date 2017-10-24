@@ -16,7 +16,7 @@ changePieceAtCapture(Board1,X1,Y1,X2,Y2,Board2, Piece) :-
 
 pieceAtcaptureAux(Board1,X1,Y1,X2,Y2,Board2, Piece):- Piece == 'W',
         write('\n[Player 1]\n'),
-        write('\nCoordenates of the pieces that you can remove:(xy)\n'),
+        write('\nCoordenates of the pieces that you can remove:\n'),
         write('X: '),write(X1),write(' - Y: '),write(Y1),nl,
         write('X: '),write(X2),write(' - Y: '),write(Y2),nl,
         write('\n[Player 1]\n'),
@@ -31,9 +31,11 @@ pieceAtcaptureAux(Board1,X1,Y1,X2,Y2,Board2, Piece):- Piece == 'W',
 
 pieceAtcaptureAux(Board1,X1,Y1,X2,Y2,Board2, Piece) :- Piece == 'B',
         write('\n[Player 2]\n'),
-        write('Coordenates of the pieces that you can remove:(xy)\n'),
+        write('Coordenates of the pieces that you can remove:\n'),
         write('X: '),write(X1),write(' - Y: '),write(Y1),nl,
         write('X: '),write(X2),write(' - Y: '),write(Y2),nl,
+        write('\n[Player 2]\n'),
+        write('Choose the piece of your opponent you want to remove\n'),
         write('X: '),
         read(Xpos),
         write('\n'),
@@ -47,7 +49,6 @@ changePieceAtCaptureAux(Board1,X1,Y1,_,_,Board2, Piece,Xpos,Ypos) :- returnPiece
         Y1 == Ypos,
         Piece \= Pieceat,
         setPieceAt(Board1,Xpos,Ypos,Board2,' ').
-
 
 changePieceAtCaptureAux(Board1,_,_,X2,Y2,Board2, Piece,Xpos, Ypos) :- returnPieceAt(Board1,X2,Y2,Pieceat),
         X2 == Xpos,
@@ -151,6 +152,72 @@ changePieceAtCaptureHorizontalAux(Board1,_,X2,Y,Board2,_,Xpos,Ypos) :-
         Board1 = Board2,
         write('Wrong coordenate. You lost your turn.  y2 diferente\n'),
         write('\n').
+
+
+/****** pc mode *******/
+/*************************************** captura **************************************/
+%Para verificar se a jogada é uma jogada em que pode ser feita uma captura
+isCapturePlayPC(Board,X,Y,Board2) :- verifyCaptureDiagonalsPC(Board, X,Y,Board1),
+        Board \= Board1,
+        append([],Board1,Board2).
+%Para verificar se a jogada é uma jogada em que pode ser feita uma captura
+isCapturePlayPC(Board,X,Y,BoardR) :- verifyCaptureDiagonalsPC(Board, X,Y,Board1),
+        Board == Board1,
+        verifyCaptureHorizontalPC(Board,X,Y,BoardR).
+
+
+/*****pc mode******/
+
+changePieceAtCapturePC(Board1,X1,Y1,X2,Y2,Board2, Piece) :- 
+        pieceAtcapturePCAux(Board1,X1,Y1,X2,Y2,Board2, Piece).
+
+pieceAtcapturePCAux(Board1,X1,Y1,X2,Y2,Board2, Piece):- Piece == 'W',
+        write('\n[Player 1]\n'),
+        write('\nCoordenates of the pieces that you can remove:(xy)\n'),
+        write('X: '),write(X1),write(' - Y: '),write(Y1),nl,
+        write('X: '),write(X2),write(' - Y: '),write(Y2),nl,
+        sleep(2),
+        write('Computer chose the part he wants to remove\n'), 
+        write('X: '),write(X1),write(' - Y: '),write(Y1),nl,     
+        write('\n'),
+        setPieceAt(Board1,X1,Y1,Board2,' ').
+
+pieceAtcapturePCAux(Board1,X1,Y1,X2,Y2,Board2, Piece) :- Piece == 'B',
+        write('\n[Player 2]\n'),
+        write('\nCoordenates of the pieces that you can remove:\n'),
+        write('X: '),write(X1),write(' - Y: '),write(Y1),nl,
+        write('X: '),write(X2),write(' - Y: '),write(Y2),nl,
+        sleep(2),
+        write('Computer chose the part he wants to remove\n'), 
+        write('X: '),write(X1),write(' - Y: '),write(Y1),nl,     
+        write('\n'),
+        setPieceAt(Board1,X1,Y1,Board2,' ').
+
+%%Para alterar a peça (para vazio) quando é feita a captura na horizontal
+changePieceAtCaptureHorizontalPC(Board1,X1,X2,Y,Board3, Piece) :-
+        pieceAtcaptureHorizontalPCAux(Board1,X1,X2,Y,Board3, Piece).
+
+pieceAtcaptureHorizontalPCAux(Board1,X1,X2,Y,Board2, Piece):- Piece == 'W',
+        write('\n[Player 1]\n'),
+        write('\nCoordenates of the pieces that you can remove:\n'),
+        write('X: '),write(X1),write(' - Y: '),write(Y),nl,
+        write('X: '),write(X2),write(' - Y: '),write(Y),nl,
+        sleep(2),
+        write('Computer chose the piece he wants to remove\n'),
+        write('X: '),write(X1),write(' - Y: '),write(Y),nl,      
+        write('\n'),
+        setPieceAt(Board1,X1,Y,Board2,' ').
+
+pieceAtcaptureHorizontalPCAux(Board1,X1,X2,Y,Board2, Piece) :- Piece == 'B',
+        write('\n[Player 2]\n'),
+        write('\nCoordenates of the pieces that you can remove:\n'),
+        write('X: '),write(X1),write(' - Y: '),write(Y),nl,
+        write('X: '),write(X2),write(' - Y: '),write(Y),nl,
+        sleep(2),
+        write('Computer chose the piece he wants to remove\n'),   
+        write('X: '),write(X1),write(' - Y: '),write(Y),nl,   
+        write('\n'),
+        setPieceAt(Board1,X1,Y,Board2,' ').
 
 
 /******************** parte de cima do tabuleiro, VERIFICA QUE DIAGONAIS USAR**********************/

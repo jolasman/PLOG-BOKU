@@ -6,6 +6,7 @@
 :- include('board.pl').
 :- include('capture.pl').
 :- include('diagonals.pl').
+:- include('diagonalsPC.pl').
 :- include('diagonals_win.pl').
 :- include('win_conditions.pl').
 
@@ -40,12 +41,14 @@ start(X) :-
         printBoard(X),
         playGame(X).
 
-pvsPC(X) :- printMenu(X),
+pvsPC(X) :- 
+        printMenu(X),
         generateEmptyBoard(X),
         printBoard(X),
         playGamevsPC(X).
 
-pcvsPC(X) :-  printMenu(X),
+pcvsPC(X) :-  
+        printMenu(X),
         generateEmptyBoard(X),
         printBoard(X),
         playGamePCvsPC(X).
@@ -70,18 +73,18 @@ playGamevsPC(X) :- p1(P1xpos, P1ypos),
         printBoard(X1),
         (isWinCondition(X1,P1xpos,P1ypos),nl, endGame(_);
          p2PC(P2xpos, P2ypos),          
-         playerturn(X1, X2, P2xpos,P2ypos, 'B'),
+         pcTurn(X1, X2, P2xpos,P2ypos, 'B'),
          printBoard(X2),
          (isWinCondition(X2,P2xpos,P2ypos),nl,endGame(_);
           \+isWinCondition(X2,P2xpos,P2ypos), playGamevsPC(X2)) ).
 
 %pc vs pc
 playGamePCvsPC(X) :- p1PC(P1xpos, P1ypos),          
-        playerturn(X, X1, P1xpos, P1ypos, 'W'),
+        pcTurn(X, X1, P1xpos, P1ypos, 'W'),
         printBoard(X1),
         (isWinCondition(X1,P1xpos,P1ypos),nl, endGame(_);
          p2PC(P2xpos, P2ypos),          
-         playerturn(X1, X2, P2xpos,P2ypos, 'B'),
+         pcTurn(X1, X2, P2xpos,P2ypos, 'B'),
          printBoard(X2),
          (isWinCondition(X2,P2xpos,P2ypos),nl,endGame(_);
           \+isWinCondition(X2,P2xpos,P2ypos), playGamePCvsPC(X2)) ).
@@ -147,6 +150,10 @@ randomX(Ypos,Xpos) :- Ypos == 6,random(1, 10, Xpos).
 playerturn(Board1, Board3, Xpos, Ypos, Player) :-
         verifyCoordenates(Board1, Xpos, Ypos,Player, Board2),
         isCapturePlay(Board2, Xpos, Ypos, Board3).
+
+pcTurn(Board1, Board3, Xpos, Ypos, Player) :-
+        verifyCoordenates(Board1, Xpos, Ypos,Player, Board2),
+        isCapturePlayPC(Board2, Xpos, Ypos, Board3).
 
 
 endGame(_):- 
