@@ -27,7 +27,7 @@ boku(_):-
         menu(Choice).
 
 menu(Choice):- Choice == 1, 
-        start(_).
+        playervsPlayer(_).
 menu(Choice):- Choice == 2, 
         pvsPC(_).
 menu(Choice):- Choice == 3, 
@@ -35,7 +35,7 @@ menu(Choice):- Choice == 3,
 menu(Choice):- Choice == 4, 
         exit(_).
 
-start(X) :-
+playervsPlayer(X) :-
         printMenu(X),
         generateEmptyBoard(X),
         printBoard(X),
